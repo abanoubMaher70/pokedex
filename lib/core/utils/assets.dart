@@ -8,5 +8,5 @@ abstract class AssetsImage {
 }
 
 abstract class AssetsAudio {
-  static const String onboardingAudio = "assets/audio/Title-Screen.mp3";
+  static const String onboardingAudio = "audio/Title-Screen.mp3";
 }

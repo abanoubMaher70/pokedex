@@ -22,21 +22,26 @@ class OnboardingViewBody extends StatelessWidget {
     return Stack(
       children: [
         //Black container
-        const BlackContainer(),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: Container(height: 105, color: Colors.black),
+        ),
 
         // pokemon-logo_illus
         Positioned(
-          left: 10,
-          right: 10,
+          left: 5,
+          right: 5,
           top: 0,
-          child: SvgPicture.asset(AssetsImage.pokemonLogoIllus, width: 450),
+          child: SvgPicture.asset(AssetsImage.pokemonLogoIllus, width: 500),
         ),
 
         // FireRedVersion-logo
         Positioned(
           left: 75,
           right: 75,
-          top: 140,
+          top: 160,
           child: Image.asset(
             AssetsImage.fireRedVersionLogo,
             filterQuality: FilterQuality.none,
@@ -48,12 +53,17 @@ class OnboardingViewBody extends StatelessWidget {
         const Positioned(
           left: 0,
           right: 0,
-          top: 285,
+          top: 330,
           child: BlinkingText(text: 'Press Start'),
         ),
 
         //Black container
-        const BlackContainer(),
+        Positioned(
+          bottom: 25,
+          left: 0,
+          right: 0,
+          child: Container(height: 100, color: Colors.black),
+        ),
 
         //team-pokemon-image
         Positioned(
@@ -83,20 +93,6 @@ class OnboardingViewBody extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class BlackContainer extends StatelessWidget {
-  const BlackContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 25,
-      left: 0,
-      right: 0,
-      child: Container(height: 100, color: Colors.black),
     );
   }
 }
