@@ -36,7 +36,11 @@ class OnboardingViewBody extends StatelessWidget {
             left: 75,
             right: 75,
             top: 140,
-            child: Image.asset(AssetsImage.fireRedVersionLogo, width: 75),
+            child: Image.asset(
+              AssetsImage.fireRedVersionLogo,
+              filterQuality: FilterQuality.none,
+              width: 75,
+            ),
           ),
 
           //Prese Start-txt
@@ -55,7 +59,11 @@ class OnboardingViewBody extends StatelessWidget {
             bottom: 50,
             right: 0,
             left: 0,
-            child: Image.asset(AssetsImage.teamPokemonImage, width: 400),
+            child: Image.asset(
+              AssetsImage.teamPokemonImage,
+              filterQuality: FilterQuality.none,
+              width: 400,
+            ),
           ),
 
           //bottom text
