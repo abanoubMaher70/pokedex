@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/utils/text_styles.dart';
 
 class BlinkingText extends StatefulWidget {
   final String text;
@@ -31,7 +32,7 @@ class _BlinkingTextState extends State<BlinkingText>
       child: Text(
         widget.text,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.white, fontSize: 20),
+        style: TextStyles.pixelFont20,
       ),
     );
   }
