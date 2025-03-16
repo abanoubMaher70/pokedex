@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/features/splash/presentation/views/splash_view.dart';
+import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 
 void main() {
   runApp(const Pokedex());

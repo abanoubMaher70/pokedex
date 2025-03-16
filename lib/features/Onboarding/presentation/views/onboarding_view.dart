@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pokedex/features/splash/presentation/views/blinking_text.dart';
+import 'package:pokedex/core/utils/assets_image.dart' show AssetsImage;
+import 'package:pokedex/core/widgets/blinking_text.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -34,10 +35,7 @@ class OnboardingScreen extends StatelessWidget {
               left: 10,
               right: 10,
               top: 0,
-              child: SvgPicture.asset(
-                'assets/images/pokemon-logo_illus.svg',
-                width: 450,
-              ),
+              child: SvgPicture.asset(AssetsImage.pokemonLogoIllus, width: 450),
             ),
 
             // FireRedVersion-logo
@@ -45,10 +43,7 @@ class OnboardingScreen extends StatelessWidget {
               left: 75,
               right: 75,
               top: 140,
-              child: Image.asset(
-                'assets/images/FireRedVersion-logo.png',
-                width: 75,
-              ),
+              child: Image.asset(AssetsImage.fireRedVersionLogo, width: 75),
             ),
 
             //Prese Start-txt
@@ -72,10 +67,7 @@ class OnboardingScreen extends StatelessWidget {
               bottom: 50,
               right: 0,
               left: 0,
-              child: Image.asset(
-                'assets/images/onboardingImage.gif',
-                width: 400,
-              ),
+              child: Image.asset(AssetsImage.teamPokemonImage, width: 400),
             ),
 
             //bottom text
