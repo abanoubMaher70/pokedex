@@ -6,3 +6,7 @@ abstract class AssetsImage {
 
   static const String teamPokemonImage = 'assets/images/onboardingImage.gif';
 }
+
+abstract class AssetsAudio {
+  static const String onboardingAudio = "assets/audio/Title-Screen.mp3";
+}
