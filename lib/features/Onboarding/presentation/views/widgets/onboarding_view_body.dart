@@ -8,7 +8,7 @@ import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/blinking_text.dart';
-import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_view_model.dart';
+import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_audio_manager.dart';
 
 class OnboardingViewBody extends StatelessWidget {
   const OnboardingViewBody({super.key});
@@ -21,19 +21,19 @@ class OnboardingViewBody extends StatelessWidget {
 
     return Stack(
       children: [
-        //Black container
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: Container(height: 105, color: Colors.black),
+        // Background Image
+        Positioned.fill(
+          child: Image.asset(
+            'assets/images/4282638_177154.jpg',
+            fit: BoxFit.cover,
+          ),
         ),
 
         // pokemon-logo_illus
         Positioned(
           left: 5,
           right: 5,
-          top: 0,
+          top: -10,
           child: SvgPicture.asset(AssetsImage.pokemonLogoIllus, width: 500),
         ),
 
@@ -53,21 +53,13 @@ class OnboardingViewBody extends StatelessWidget {
         const Positioned(
           left: 0,
           right: 0,
-          top: 330,
+          top: 310,
           child: BlinkingText(text: 'Press Start'),
-        ),
-
-        //Black container
-        Positioned(
-          bottom: 25,
-          left: 0,
-          right: 0,
-          child: Container(height: 100, color: Colors.black),
         ),
 
         //team-pokemon-image
         Positioned(
-          bottom: 50,
+          bottom: 40,
           right: 0,
           left: 0,
           child: Image.asset(

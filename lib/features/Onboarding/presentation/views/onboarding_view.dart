@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/constants.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/assets.dart';
-import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_view_model.dart';
+import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_audio_manager.dart';
 import 'package:pokedex/features/Onboarding/presentation/views/widgets/onboarding_view_body.dart';
 
 class OnboardingView extends StatefulWidget {
@@ -31,7 +31,6 @@ class _OnboardingViewState extends State<OnboardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPrimaryGreen,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => _viewModel.stopAudioAndNavigate(_navigateToHome),

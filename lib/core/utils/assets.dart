@@ -5,6 +5,8 @@ abstract class AssetsImage {
       'assets/images/FireRedVersion-logo.png';
 
   static const String teamPokemonImage = 'assets/images/onboardingImage.gif';
+
+  static const String backgroundImage = 'assets/images/background-lava.jpg';
 }
 
 abstract class AssetsAudio {
