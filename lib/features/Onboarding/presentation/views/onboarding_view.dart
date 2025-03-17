@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/constants.dart';
 import 'package:pokedex/core/utils/app_router.dart';
+import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_view_model.dart';
 import 'package:pokedex/features/Onboarding/presentation/views/widgets/onboarding_view_body.dart';
 
@@ -13,11 +14,18 @@ class OnboardingView extends StatefulWidget {
 }
 
 class _OnboardingViewState extends State<OnboardingView> {
-  final OnboardingViewModel onboardingViewModel = OnboardingViewModel();
+  late final OnboardingViewModel _viewModel;
   @override
   void initState() {
-    onboardingViewModel.startAudio();
+    _viewModel = OnboardingViewModel();
+    _viewModel.playAudio(AssetsAudio.onboardingAudio);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _viewModel.dispose();
+    super.dispose();
   }
 
   @override
@@ -26,14 +34,14 @@ class _OnboardingViewState extends State<OnboardingView> {
       backgroundColor: kPrimaryGreen,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => onboardingViewModel.stopAudioAndNavigate(navigation),
+          onTap: () => _viewModel.stopAudioAndNavigate(_navigateToHome),
           child: const OnboardingViewBody(),
         ),
       ),
     );
   }
 
-  void navigation() {
+  void _navigateToHome() {
     GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
   }
 }

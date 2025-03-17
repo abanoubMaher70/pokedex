@@ -6,7 +6,7 @@ class AudioService with WidgetsBindingObserver {
 
   AudioService() {
     WidgetsBinding.instance.addObserver(this);
-    _player.setReleaseMode(ReleaseMode.loop); // Enable looping
+    _player.setReleaseMode(ReleaseMode.loop);
   }
 
   Future<void> playAudio(String assetsPath) async {
@@ -17,15 +17,21 @@ class AudioService with WidgetsBindingObserver {
     await _player.stop();
   }
 
+  Future<void> resume() async {
+    await _player.resume();
+  }
+
   Future<void> dispose() async {
-    await _player.dispose();
     WidgetsBinding.instance.removeObserver(this);
+    await _player.dispose();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
       stopAudio(); // Stop audio when app goes to background
+    } else if (state == AppLifecycleState.resumed) {
+      resume();
     }
   }
 }

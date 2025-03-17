@@ -5,11 +5,11 @@ import 'package:pokedex/core/utils/assets.dart';
 class OnboardingViewModel {
   final AudioService _audioService = AudioService();
 
-  Future<void> startAudio() async {
-    await _audioService.playAudio(AssetsAudio.onboardingAudio);
+  Future<void> playAudio(String assetsPath) async {
+    await _audioService.playAudio(assetsPath);
   }
 
-  Future<void> stop() async {
+  Future<void> stopAudio() async {
     await _audioService.stopAudio();
   }
 
@@ -17,9 +17,9 @@ class OnboardingViewModel {
     await _audioService.dispose();
   }
 
-  Future<void> stopAudioAndNavigate(Function onNavigate) async {
-    await _audioService.stopAudio();
-    await _audioService.dispose();
+  Future<void> stopAudioAndNavigate(Function() onNavigate) async {
+    await stopAudio();
+    await dispose();
     onNavigate();
   }
 }
