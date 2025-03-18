@@ -9,6 +9,6 @@ final kPrimaryOnboardingTheme = const SystemUiOverlayStyle(
 );
 
 final kPrimaryHomeTheme = const SystemUiOverlayStyle(
-  statusBarColor: Colors.white,
+  statusBarColor: Colors.transparent,
   statusBarIconBrightness: Brightness.dark,
 );
