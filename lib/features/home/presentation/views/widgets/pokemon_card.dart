@@ -38,7 +38,7 @@ class PokemonCard extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              const PokemonTypeIcon(),
+              const PokemonTypeIcon(pokemonType: 'fire'),
             ],
           ),
         ),
@@ -47,7 +47,8 @@ class PokemonCard extends StatelessWidget {
           child: SizedBox(
             height: 170,
             child: Image.network(
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png',
+              filterQuality: FilterQuality.none,
+              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
               fit: BoxFit.cover,
             ),
           ),

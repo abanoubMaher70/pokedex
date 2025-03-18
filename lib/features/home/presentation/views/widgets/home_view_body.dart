@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pokedex/core/constants/app_theme.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
-import 'package:pokedex/core/constants.dart';
+import 'package:pokedex/core/constants/colors_constant.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/pokemon_card.dart';
 
