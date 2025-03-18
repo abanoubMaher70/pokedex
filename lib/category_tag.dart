@@ -10,21 +10,28 @@ class CategoryTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.15),
-          borderRadius: BorderRadius.circular(5),
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(50),
         ),
-        child: Text(
-          text,
-          softWrap: true,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            letterSpacing: 1.35,
-            color: color,
-            fontWeight: FontWeight.bold,
-            fontSize: 10,
-          ),
+        child: const Row(
+          spacing: 8,
+          children: [
+            Icon(Icons.grass, color: Colors.white, size: 20),
+            Icon(Icons.wind_power, color: Colors.white, size: 20),
+
+            // Text(
+            //   text,
+            //   softWrap: true,
+            //   overflow: TextOverflow.ellipsis,
+            //   style: const TextStyle(
+            //     color: Colors.white,
+            //     fontWeight: FontWeight.bold,
+            //     fontSize: 14,
+            //   ),
+            // ),
+          ],
         ),
       ),
     );

@@ -23,10 +23,7 @@ class OnboardingViewBody extends StatelessWidget {
       children: [
         // Background Image
         Positioned.fill(
-          child: Image.asset(
-            'assets/images/4282638_177154.jpg',
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(AssetsImage.backgroundImage, fit: BoxFit.cover),
         ),
 
         // pokemon-logo_illus
