@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/utils/text_styles.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -55,6 +56,10 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         obscureText: obscureText,
+        style: TextStyles.pixelFont16.copyWith(
+          fontSize: 13,
+          fontWeight: FontWeight.w300,
+        ),
         decoration: InputDecoration(
           /////////////////////////////
           enabledBorder: OutlineInputBorder(
@@ -81,12 +86,12 @@ class CustomTextField extends StatelessWidget {
           ),
           /////////////////////////////
           filled: filled,
+          fillColor: fillColor,
           errorText: errorText,
           prefixIcon: prefixIcon,
           suffixIcon: suffix,
           hintText: hintText,
-          fillColor: fillColor,
-          hintStyle: const TextStyle(fontSize: 16),
+          hintStyle: TextStyles.pixelFont16.copyWith(fontSize: 10),
         ),
       ),
     );
