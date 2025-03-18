@@ -3,7 +3,8 @@ import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 
 class PokemonCard extends StatelessWidget {
-  const PokemonCard({super.key});
+  const PokemonCard(this.number, {super.key});
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +12,12 @@ class PokemonCard extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          padding: const EdgeInsets.all(16),
-          margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          margin: const EdgeInsets.only(bottom: 24),
           height: 135,
           width: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
             color: const Color(0xffFFEAD8),
           ),
           child: Column(
@@ -38,17 +39,18 @@ class PokemonCard extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              const PokemonTypeIcon(pokemonType: 'fire'),
+              const PokemonTypeIcon(pokemonType: 'water'),
             ],
           ),
         ),
         Positioned(
-          right: 0,
+          right: -10,
+          top: -10,
           child: SizedBox(
-            height: 170,
+            height: 160,
             child: Image.network(
               filterQuality: FilterQuality.none,
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
+              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$number.png',
               fit: BoxFit.cover,
             ),
           ),

@@ -6,9 +6,8 @@ class CustomTextField extends StatelessWidget {
     this.hintText,
     this.controller,
     this.obscureText = false,
-    this.setIcon = false,
     this.keyboardType,
-    this.icon,
+    this.prefixIcon,
     this.suffix,
     this.textInputAction = TextInputAction.next,
     this.filled = true,
@@ -20,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     this.autofocus = false,
     this.errorText,
     this.borderColor = Colors.white,
+    this.fillColor,
   });
 
   final TextEditingController? controller;
@@ -28,13 +28,13 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final TextInputType? keyboardType;
 
-  final Widget? icon;
-  final bool setIcon;
+  final Widget? prefixIcon;
   final Widget? suffix;
   final TextInputAction? textInputAction;
   final int? maxLines;
   final double padding;
   final Color borderColor;
+  final Color? fillColor;
 
   final Function(String?)? onSubmitted;
   final Function(String)? onChanged;
@@ -82,13 +82,10 @@ class CustomTextField extends StatelessWidget {
           /////////////////////////////
           filled: filled,
           errorText: errorText,
-          prefixIcon:
-              setIcon
-                  ? Padding(padding: const EdgeInsets.all(10.5), child: icon)
-                  : null,
+          prefixIcon: prefixIcon,
           suffixIcon: suffix,
           hintText: hintText,
-
+          fillColor: fillColor,
           hintStyle: const TextStyle(fontSize: 16),
         ),
       ),
