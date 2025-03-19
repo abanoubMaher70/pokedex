@@ -20,28 +20,6 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    return Padding(
-      padding: ResponsiveConstant.pagePadding,
-      child: Column(
-        children: [
-          const CustomTextAppBar(title: 'Pokedex search'),
-          const SizedBox(height: 18),
-          CustomTextField(
-            hintText: 'Search about any pokemon',
-            hintStyle: TextStyles.pixelFont14.copyWith(fontSize: 11),
-            suffix: const Icon(IconlyLight.search),
-            textStyle: TextStyles.pixelFont14,
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return PokemonCard(90 + index);
-              },
-            ),
-          ),
-        ],
-      ),
-    );
+    return const Center(child: Text('HomeViewBody'));
   }
 }
