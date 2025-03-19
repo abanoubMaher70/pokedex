@@ -21,6 +21,8 @@ class CustomTextField extends StatelessWidget {
     this.errorText,
     this.borderColor = Colors.white,
     this.fillColor,
+    this.textStyle,
+    this.hintStyle,
   });
 
   final TextEditingController? controller;
@@ -28,6 +30,8 @@ class CustomTextField extends StatelessWidget {
   final bool? filled;
   final String? hintText;
   final TextInputType? keyboardType;
+  final TextStyle? textStyle;
+  final TextStyle? hintStyle;
 
   final Widget? prefixIcon;
   final Widget? suffix;
@@ -56,10 +60,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         obscureText: obscureText,
-        style: TextStyles.pixelFont16.copyWith(
-          fontSize: 13,
-          fontWeight: FontWeight.w300,
-        ),
+        style: textStyle,
         decoration: InputDecoration(
           /////////////////////////////
           enabledBorder: OutlineInputBorder(
@@ -91,7 +92,7 @@ class CustomTextField extends StatelessWidget {
           prefixIcon: prefixIcon,
           suffixIcon: suffix,
           hintText: hintText,
-          hintStyle: TextStyles.pixelFont16.copyWith(fontSize: 10),
+          hintStyle: hintStyle,
         ),
       ),
     );

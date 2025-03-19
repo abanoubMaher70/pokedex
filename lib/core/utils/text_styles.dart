@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-abstract class TextStyles {
+class TextStyles {
+  TextStyles._();
+
   static final textStyle16 = const TextStyle(fontSize: 16);
   static final textStyle18 = const TextStyle(fontSize: 18);
   static final textStyle22 = const TextStyle(fontSize: 22);
 
+  static final pixelFont14 = TextStyle(
+    fontFamily:
+        GoogleFonts.pressStart2p(fontSize: 14, color: Colors.black).fontFamily,
+  );
   static final pixelFont16 = TextStyle(
     fontFamily:
         GoogleFonts.pressStart2p(fontSize: 16, color: Colors.black).fontFamily,

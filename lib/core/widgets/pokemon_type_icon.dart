@@ -16,7 +16,7 @@ class PokemonTypeIcon extends StatelessWidget {
       ),
       child: Image.asset(
         'assets/images/pokemons_types/$pokemonType.png',
-        height: 20,
+        height: 18,
       ),
     );
   }

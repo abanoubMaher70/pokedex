@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/constants/app_theme.dart';
-import 'package:pokedex/core/constants/colors_constant.dart';
+import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
@@ -74,7 +74,7 @@ class OnboardingViewBody extends StatelessWidget {
           right: 0,
           child: Container(
             height: 25,
-            color: kPrimaryRed,
+            color: ConstantColors.kPrimaryRed,
             child: Text(
               textAlign: TextAlign.center,
               'Ⓒ 2004 GAME FREAK inc,',

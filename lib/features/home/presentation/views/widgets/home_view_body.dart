@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/app_theme.dart';
+import 'package:pokedex/core/constants/responsive_constant.dart';
 import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_text_field.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
-import 'package:pokedex/core/constants/colors_constant.dart';
+import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/pokemon_card.dart';
@@ -16,18 +17,20 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      SystemChrome.setSystemUIOverlayStyle(kPrimaryHomeTheme);
+      SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: ResponsiveConstant.pagePadding,
       child: Column(
         children: [
           const CustomTextAppBar(title: 'Pokedex search'),
           const SizedBox(height: 18),
-          const CustomTextField(
+          CustomTextField(
             hintText: 'Search about any pokemon',
-            suffix: Icon(IconlyLight.search),
+            hintStyle: TextStyles.pixelFont14.copyWith(fontSize: 11),
+            suffix: const Icon(IconlyLight.search),
+            textStyle: TextStyles.pixelFont14,
           ),
           Expanded(
             child: ListView.builder(

@@ -1,4 +1,5 @@
-abstract class AssetsImage {
+class AssetsImage {
+  AssetsImage._();
   static const String pokemonLogoIllus = 'assets/images/pokemon-logo_illus.svg';
 
   static const String fireRedVersionLogo =
@@ -9,6 +10,7 @@ abstract class AssetsImage {
   static const String backgroundImage = 'assets/images/background-lava.jpg';
 }
 
-abstract class AssetsAudio {
+class AssetsAudio {
+  AssetsAudio._();
   static const String onboardingAudio = "audio/Title-Screen.mp3";
 }
