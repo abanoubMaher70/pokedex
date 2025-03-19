@@ -10,15 +10,17 @@ class PokemonTypeIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = this.iconSize ?? 18;
+    final foregroundColor = getPokemonForegroundColor(pokemonType);
+
     return Container(
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: getPokemonForegroundColor(pokemonType),
-        shape: BoxShape.circle,
-      ),
-      child: Image.asset(
-        'assets/images/pokemons_types/${pokemonType.name}.png',
-        height: iconSize ?? 18,
+      padding: EdgeInsets.all(iconSize - 12),
+      decoration: BoxDecoration(color: foregroundColor, shape: BoxShape.circle),
+      child: SizedBox(
+        height: iconSize,
+        child: Image.asset(
+          'assets/images/pokemons_types/${pokemonType.name}.png',
+        ),
       ),
     );
   }

@@ -16,6 +16,7 @@ import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
 import 'package:pokedex/core/widgets/pokemon_card.dart';
+import 'package:pokedex/features/search/presentation/views/widgets/pokemon_type_button.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -26,57 +27,8 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    return SingleChildScrollView(
-      child: Column(
-        spacing: 10,
-        children: [
-          const Center(child: CustomHomeAppBar()),
-
-          Container(
-            width: 175,
-            height: 60,
-            decoration: const BoxDecoration(),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: PokemonType.dark.backgroundColor,
-                foregroundColor: PokemonType.dark.foregroundColor,
-                shadowColor: Colors.grey.shade100,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('dark', style: TextStyles.textStyle12),
-                  const PokemonTypeIcon(
-                    pokemonType: PokemonType.dark,
-                    iconSize: 24,
-                  ),
-                ],
-              ),
-              onPressed: () {},
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SvgPicture.asset(AssetsImage.pokemonLogoSVG, width: 50, height: 50),
-
-        IconButton(
-          icon: const Icon(IconlyLight.search),
-          iconSize: 30,
-          onPressed: () => GoRouter.of(context).push(AppRouter.kSearchView),
-        ),
-      ],
+    return const Center(
+      child: PokemonTypeButton(pokemonType: PokemonType.flying),
     );
   }
 }
