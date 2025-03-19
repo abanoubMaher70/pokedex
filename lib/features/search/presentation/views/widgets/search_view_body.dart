@@ -18,7 +18,7 @@ class SearchViewBody extends StatelessWidget {
         const SizedBox(height: 18),
         CustomTextField(
           hintText: 'Search about any pokemon',
-          hintStyle: TextStyles.textStyle11,
+          hintStyle: TextStyles.textStyle12.copyWith(fontSize: 11),
           suffix: const Icon(IconlyLight.search),
           textStyle: TextStyles.textStyle14,
         ),

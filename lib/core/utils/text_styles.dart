@@ -15,7 +15,7 @@ class TextStyles {
     fontFamily: GoogleFonts.poppins(fontSize: 22).fontFamily,
   );
 
-  static final textStyle11 = const TextStyle(fontSize: 11);
+  static final textStyle12 = const TextStyle(fontSize: 12);
   static final textStyle14 = const TextStyle(fontSize: 14);
   static final textStyle16 = const TextStyle(fontSize: 16);
   static final textStyle18 = const TextStyle(fontSize: 18);

@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/app_theme.dart';
+import 'package:pokedex/core/constants/pokemon_type_constant.dart';
 import 'package:pokedex/core/constants/responsive_constant.dart';
+import 'package:pokedex/core/models/pokemon_type.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
@@ -24,55 +26,37 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    return Column(
-      children: [
-        const Center(child: CustomHomeAppBar()),
-        Row(
-          children: [
-            Container(
-              width: 175,
-              height: 60,
-              decoration: const BoxDecoration(),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xffFFEAD8),
-                  foregroundColor: Colors.deepOrange,
-                  shadowColor: Colors.grey.shade100,
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Fire', style: TextStyles.textStyle14),
-                    const PokemonTypeIcon(pokemonType: 'fire', iconSize: 24),
-                  ],
-                ),
-              ),
-            ),
+    return SingleChildScrollView(
+      child: Column(
+        spacing: 10,
+        children: [
+          const Center(child: CustomHomeAppBar()),
 
-            Container(
-              width: 175,
-              height: 60,
-              decoration: const BoxDecoration(),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown.shade400,
-                  foregroundColor: Colors.brown.shade900,
-                  shadowColor: Colors.grey.shade100,
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Rock', style: TextStyles.textStyle14),
-                    const PokemonTypeIcon(pokemonType: 'rock', iconSize: 24),
-                  ],
-                ),
+          Container(
+            width: 175,
+            height: 60,
+            decoration: const BoxDecoration(),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: PokemonType.dark.backgroundColor,
+                foregroundColor: PokemonType.dark.foregroundColor,
+                shadowColor: Colors.grey.shade100,
               ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('dark', style: TextStyles.textStyle12),
+                  const PokemonTypeIcon(
+                    pokemonType: PokemonType.dark,
+                    iconSize: 24,
+                  ),
+                ],
+              ),
+              onPressed: () {},
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/models/pokemon_type.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 
@@ -27,7 +28,7 @@ class PokemonCard extends StatelessWidget {
             children: [
               Text(
                 "#006",
-                style: TextStyles.textStyle11.copyWith(
+                style: TextStyles.textStyle12.copyWith(
                   color: const Color(0xffEC6C00),
                 ),
               ),
@@ -37,7 +38,7 @@ class PokemonCard extends StatelessWidget {
                   color: const Color(0xffEC6C00),
                 ),
               ),
-              const PokemonTypeIcon(pokemonType: 'electric'),
+              const PokemonTypeIcon(pokemonType: PokemonType.electric),
             ],
           ),
         ),
