@@ -19,7 +19,29 @@ class SearchViewBody extends StatelessWidget {
           hintStyle: TextStyles.textStyle12.copyWith(fontSize: 11),
           suffix: const Icon(IconlyLight.search),
           textStyle: TextStyles.textStyle14,
+          fillColor: Colors.white,
         ),
+        //const Row(children: [Text("Search by Type")]),
+        // Expanded(
+        //   child: Padding(
+        //     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        //     child: GridView.builder(
+        //       physics: const NeverScrollableScrollPhysics(),
+        //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //         crossAxisCount: 2,
+        //         crossAxisSpacing: 20,
+        //         mainAxisSpacing: 20,
+        //         childAspectRatio: 2.3,
+        //       ),
+        //       itemCount: 6,
+        //       itemBuilder: (context, index) {
+        //         return PokemonTypeButton(
+        //           pokemonType: PokemonType.values[index],
+        //         );
+        //       },
+        //     ),
+        //   ),
+        // ),
         const SearchListViewBuilder(),
       ],
     );
