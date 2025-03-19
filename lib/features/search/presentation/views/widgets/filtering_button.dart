@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-import 'package:pokedex/core/constants/pokemon_type_constant.dart';
 import 'package:pokedex/core/models/pokemon_type.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
-import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 
-class PokemonTypeButton extends StatelessWidget {
-  const PokemonTypeButton({super.key, required this.pokemonType});
+class FilteringButton extends StatelessWidget {
+  const FilteringButton({super.key, required this.filterBy});
 
-  final PokemonType pokemonType;
+  final String filterBy;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +16,8 @@ class PokemonTypeButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.zero,
-          backgroundColor: pokemonType.backgroundColor,
-          foregroundColor: pokemonType.foregroundColor,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
           shadowColor: Colors.grey.shade100,
         ),
         onPressed: () {},
@@ -28,13 +26,13 @@ class PokemonTypeButton extends StatelessWidget {
           children: [
             Flexible(
               child: Text(
-                pokemonType.name.toUpperCase(),
+                filterBy,
                 style: TextStyles.textStyle12,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            PokemonTypeIcon(pokemonType: pokemonType, iconSize: 22),
+            const Icon(IconlyLight.filter_2, size: 22),
           ],
         ),
       ),
