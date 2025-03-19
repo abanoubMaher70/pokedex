@@ -16,9 +16,10 @@ class Pokedex extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        textTheme: GoogleFonts.pressStart2pTextTheme(
+          Theme.of(context).textTheme,
+        ),
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
       ),
       routerConfig: AppRouter.router,
     );

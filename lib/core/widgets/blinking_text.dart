@@ -32,7 +32,7 @@ class _BlinkingTextState extends State<BlinkingText>
       child: Text(
         widget.text,
         textAlign: TextAlign.center,
-        style: TextStyles.pixelFont20,
+        style: TextStyles.textStyle20,
       ),
     );
   }

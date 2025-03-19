@@ -81,7 +81,7 @@ class OnboardingViewBody extends StatelessWidget {
             child: Text(
               textAlign: TextAlign.center,
               'Ⓒ 2004 GAME FREAK inc,',
-              style: TextStyles.textStyle16,
+              style: TextStyles.normalTextStyle16,
             ),
           ),
         ),

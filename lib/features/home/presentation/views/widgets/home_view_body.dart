@@ -13,7 +13,7 @@ import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
-import 'package:pokedex/features/home/presentation/views/widgets/pokemon_card.dart';
+import 'package:pokedex/core/widgets/pokemon_card.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -24,7 +24,56 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    return const Column(children: [Center(child: CustomHomeAppBar())]);
+    return Column(
+      children: [
+        const Center(child: CustomHomeAppBar()),
+        Row(
+          children: [
+            Container(
+              width: 175,
+              height: 60,
+              decoration: const BoxDecoration(),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffFFEAD8),
+                  foregroundColor: Colors.deepOrange,
+                  shadowColor: Colors.grey.shade100,
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Fire', style: TextStyles.textStyle14),
+                    const PokemonTypeIcon(pokemonType: 'fire', iconSize: 24),
+                  ],
+                ),
+              ),
+            ),
+
+            Container(
+              width: 175,
+              height: 60,
+              decoration: const BoxDecoration(),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown.shade400,
+                  foregroundColor: Colors.brown.shade900,
+                  shadowColor: Colors.grey.shade100,
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Rock', style: TextStyles.textStyle14),
+                    const PokemonTypeIcon(pokemonType: 'rock', iconSize: 24),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 

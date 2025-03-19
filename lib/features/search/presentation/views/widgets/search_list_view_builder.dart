@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/features/home/presentation/views/widgets/pokemon_card.dart';
+import 'package:pokedex/core/widgets/pokemon_card.dart';
 
 class SearchListViewBuilder extends StatelessWidget {
   const SearchListViewBuilder({super.key});
@@ -8,9 +8,10 @@ class SearchListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemCount: 4,
         itemBuilder: (context, index) {
-          return PokemonCard(90 + index);
+          return PokemonCard(24 + index);
         },
       ),
     );

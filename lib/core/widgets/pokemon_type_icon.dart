@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
 
 class PokemonTypeIcon extends StatelessWidget {
-  const PokemonTypeIcon({super.key, required this.pokemonType});
+  const PokemonTypeIcon({super.key, required this.pokemonType, this.iconSize});
 
   final String pokemonType;
+  final double? iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class PokemonTypeIcon extends StatelessWidget {
       ),
       child: Image.asset(
         'assets/images/pokemons_types/$pokemonType.png',
-        height: 18,
+        height: iconSize ?? 18,
       ),
     );
   }

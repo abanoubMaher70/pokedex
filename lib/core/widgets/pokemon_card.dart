@@ -27,19 +27,17 @@ class PokemonCard extends StatelessWidget {
             children: [
               Text(
                 "#006",
-                style: TextStyles.pixelFont20.copyWith(
+                style: TextStyles.textStyle11.copyWith(
                   color: const Color(0xffEC6C00),
-                  fontSize: 12,
                 ),
               ),
               Text(
                 "chermander",
-                style: TextStyles.pixelFont20.copyWith(
+                style: TextStyles.textStyle20.copyWith(
                   color: const Color(0xffEC6C00),
-                  fontSize: 20,
                 ),
               ),
-              const PokemonTypeIcon(pokemonType: 'water'),
+              const PokemonTypeIcon(pokemonType: 'electric'),
             ],
           ),
         ),

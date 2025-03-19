@@ -13,7 +13,7 @@ class CustomTextAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SquerButton.backButton(context),
-        Text(title, style: TextStyles.pixelFont20),
+        Text(title, style: TextStyles.textStyle20),
         const SizedBox.square(),
       ],
     );
