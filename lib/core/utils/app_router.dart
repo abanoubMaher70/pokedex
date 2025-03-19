@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:pokedex/features/home/presentation/views/home_view.dart';
 import 'package:pokedex/features/search/presentation/views/search_view.dart';
 

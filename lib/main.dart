@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex/core/utils/app_router.dart';
-import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 
 void main() {
   runApp(const Pokedex());

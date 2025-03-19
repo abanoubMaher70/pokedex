@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/models/pokemon_type.dart';
-import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 
 extension PokemonTypeConstant on PokemonType {
   Color get backgroundColor {

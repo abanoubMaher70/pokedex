@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/utils/text_styles.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({

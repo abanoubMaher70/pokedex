@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/features/Onboarding/presentation/manager/onboarding_audio_manager.dart';

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:pokedex/core/services/audio_services.dart';
-import 'package:pokedex/core/utils/assets.dart';
 
 class OnboardingViewModel {
   final AudioService _audioService = AudioService();

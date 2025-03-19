@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-import 'package:pokedex/core/constants/responsive_constant.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_text_field.dart';
-import 'package:pokedex/core/widgets/pokemon_card.dart';
 import 'package:pokedex/features/search/presentation/views/widgets/search_list_view_builder.dart';
 
 class SearchViewBody extends StatelessWidget {
