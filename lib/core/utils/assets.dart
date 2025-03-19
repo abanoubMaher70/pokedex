@@ -1,13 +1,16 @@
 class AssetsImage {
   AssetsImage._();
-  static const String pokemonLogoIllus = 'assets/images/pokemon-logo_illus.svg';
+  static const String pokemonLogoSVG =
+      'assets/images/onboarding_images/pokemon-logo_illus.svg';
 
   static const String fireRedVersionLogo =
-      'assets/images/FireRedVersion-logo.png';
+      'assets/images/onboarding_images/FireRedVersion-logo.png';
 
-  static const String teamPokemonImage = 'assets/images/onboardingImage.gif';
+  static const String teamPokemonImage =
+      'assets/images/onboarding_images/teamPokemonImage.gif';
 
-  static const String backgroundImage = 'assets/images/background-lava.jpg';
+  static const String backgroundLavaImage =
+      'assets/images/onboarding_images/background-lava.jpg';
 }
 
 class AssetsAudio {

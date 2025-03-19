@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/app_theme.dart';
 import 'package:pokedex/core/constants/responsive_constant.dart';
+import 'package:pokedex/core/utils/app_router.dart';
+import 'package:pokedex/core/utils/assets.dart';
 import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_text_field.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
@@ -20,6 +24,26 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    return const Center(child: Text('HomeViewBody'));
+    return const Column(children: [Center(child: CustomHomeAppBar())]);
+  }
+}
+
+class CustomHomeAppBar extends StatelessWidget {
+  const CustomHomeAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SvgPicture.asset(AssetsImage.pokemonLogoSVG, width: 50, height: 50),
+
+        IconButton(
+          icon: const Icon(IconlyLight.search),
+          iconSize: 30,
+          onPressed: () => GoRouter.of(context).push(AppRouter.kSearchView),
+        ),
+      ],
+    );
   }
 }

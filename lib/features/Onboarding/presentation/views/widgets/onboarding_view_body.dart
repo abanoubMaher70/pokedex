@@ -24,7 +24,10 @@ class OnboardingViewBody extends StatelessWidget {
       children: [
         // Background Image
         Positioned.fill(
-          child: Image.asset(AssetsImage.backgroundImage, fit: BoxFit.cover),
+          child: Image.asset(
+            AssetsImage.backgroundLavaImage,
+            fit: BoxFit.cover,
+          ),
         ),
 
         // pokemon-logo_illus
@@ -32,7 +35,7 @@ class OnboardingViewBody extends StatelessWidget {
           left: 5,
           right: 5,
           top: -10,
-          child: SvgPicture.asset(AssetsImage.pokemonLogoIllus, width: 500),
+          child: SvgPicture.asset(AssetsImage.pokemonLogoSVG, width: 500),
         ),
 
         // FireRedVersion-logo
