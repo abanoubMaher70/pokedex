@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
 
-class CustomTextAppBar extends StatelessWidget {
-  const CustomTextAppBar({super.key, required this.title});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key, required this.title, this.leading});
 
   final String title;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class CustomTextAppBar extends StatelessWidget {
       children: [
         SquerButton.backButton(context),
         Text(title, style: TextStyles.textStyle14),
-        const SizedBox.square(),
+        leading ?? const SizedBox.square(),
       ],
     );
   }

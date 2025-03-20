@@ -16,7 +16,7 @@ class SearchViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              const CustomTextAppBar(title: 'Pokedex search'),
+              const CustomAppBar(title: 'Pokedex search'),
               const SizedBox(height: 18),
               CustomTextField(
                 hintText: 'Search about any pokemon',
