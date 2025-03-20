@@ -13,8 +13,6 @@ class HomeViewBody extends StatelessWidget {
       SystemChrome.setSystemUIOverlayStyle(AppTheme.kPrimaryHomeTheme);
     });
 
-    //
-
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

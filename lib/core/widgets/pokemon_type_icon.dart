@@ -14,7 +14,7 @@ class PokemonTypeIcon extends StatelessWidget {
     final foregroundColor = getPokemonForegroundColor(pokemonType);
 
     return Container(
-      padding: EdgeInsets.all(iconSize - 12),
+      padding: EdgeInsets.all(iconSize - 14),
       decoration: BoxDecoration(color: foregroundColor, shape: BoxShape.circle),
       child: SizedBox(
         height: iconSize,

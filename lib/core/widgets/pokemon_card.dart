@@ -9,22 +9,21 @@ class PokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          margin: const EdgeInsets.only(bottom: 24),
-          height: 135,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: const Color(0xffFFEAD8),
-          ),
-          child: Column(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      margin: const EdgeInsets.only(bottom: 16),
+      height: 135,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: const Color(0xffFFEAD8),
+      ),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            spacing: 4,
             children: [
               Text(
                 "#006",
@@ -38,23 +37,22 @@ class PokemonCard extends StatelessWidget {
                   color: const Color(0xffEC6C00),
                 ),
               ),
-              const PokemonTypeIcon(pokemonType: PokemonType.electric),
+              const PokemonTypeIcon(pokemonType: PokemonType.dark),
             ],
           ),
-        ),
-        Positioned(
-          right: -10,
-          top: -10,
-          child: SizedBox(
-            height: 160,
+
+          Positioned(
+            right: -20,
+            top: -5,
             child: Image.network(
+              height: 155,
               filterQuality: FilterQuality.none,
               'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$number.png',
               fit: BoxFit.cover,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -9,9 +9,9 @@ class SearchListViewBuilder extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: 4,
+        itemCount: 8,
         itemBuilder: (context, index) {
-          return PokemonCard(24 + index);
+          return PokemonCard(644 + index);
         },
       ),
     );

@@ -18,8 +18,8 @@ class CustomHomeAppBar extends StatelessWidget {
             'assets/images/pokebola-blanca.png',
             width: 50,
             height: 50,
-            // color: PokemonType.fire.foregroundColor,
-            color: const Color(0xffEE8329),
+            // color: PokemonType.dark.foregroundColor,
+            color: const Color(0xff394F59),
           ),
           IconButton(
             icon: const Icon(IconlyLight.search),

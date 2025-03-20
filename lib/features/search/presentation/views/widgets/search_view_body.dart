@@ -19,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
           hintStyle: TextStyles.textStyle12.copyWith(fontSize: 11),
           suffix: const Icon(IconlyLight.search),
           textStyle: TextStyles.textStyle14,
-          fillColor: Colors.white,
+          fillColor: Colors.grey[50],
         ),
         //const Row(children: [Text("Search by Type")]),
         // Expanded(
