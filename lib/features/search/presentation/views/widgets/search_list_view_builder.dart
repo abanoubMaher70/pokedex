@@ -6,14 +6,11 @@ class SearchListViewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 8,
-        itemBuilder: (context, index) {
-          return PokemonCard(644 + index);
-        },
-      ),
+    return SliverList.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return PokemonCard(144 + index);
+      },
     );
   }
 }

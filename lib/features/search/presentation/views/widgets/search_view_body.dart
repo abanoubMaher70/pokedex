@@ -10,40 +10,50 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomTextAppBar(title: 'Pokedex search'),
-        const SizedBox(height: 18),
-        CustomTextField(
-          hintText: 'Search about any pokemon',
-          hintStyle: TextStyles.textStyle12.copyWith(fontSize: 11),
-          suffix: const Icon(IconlyLight.search),
-          textStyle: TextStyles.textStyle14,
-          fillColor: Colors.grey[50],
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              const CustomTextAppBar(title: 'Pokedex search'),
+              const SizedBox(height: 18),
+              CustomTextField(
+                hintText: 'Search about any pokemon',
+                hintStyle: TextStyles.textStyle12.copyWith(fontSize: 11),
+                suffix: const Icon(IconlyLight.search),
+                textStyle: TextStyles.textStyle14,
+                fillColor: Colors.grey[50],
+              ),
+            ],
+          ),
         ),
-        //const Row(children: [Text("Search by Type")]),
-        // Expanded(
-        //   child: Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        //     child: GridView.builder(
-        //       physics: const NeverScrollableScrollPhysics(),
-        //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //         crossAxisCount: 2,
-        //         crossAxisSpacing: 20,
-        //         mainAxisSpacing: 20,
-        //         childAspectRatio: 2.3,
-        //       ),
-        //       itemCount: 6,
-        //       itemBuilder: (context, index) {
-        //         return PokemonTypeButton(
-        //           pokemonType: PokemonType.values[index],
-        //         );
-        //       },
-        //     ),
-        //   ),
-        // ),
         const SearchListViewBuilder(),
       ],
     );
   }
 }
+
+
+
+//const Row(children: [Text("Search by Type")]),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          //     child: GridView.builder(
+          //       physics: const NeverScrollableScrollPhysics(),
+          //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 2,
+          //         crossAxisSpacing: 20,
+          //         mainAxisSpacing: 20,
+          //         childAspectRatio: 2.3,
+          //       ),
+          //       itemCount: 6,
+          //       itemBuilder: (context, index) {
+          //         return PokemonTypeButton(
+          //           pokemonType: PokemonType.values[index],
+          //         );
+          //       },
+          //     ),
+          //   ),
+          // ),
