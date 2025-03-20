@@ -15,8 +15,11 @@ class AppRouter {
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
       ),
-      GoRoute(path: kHomeView, builder: (context, state) => const HomeView()),
-      GoRoute(path: '/', builder: (context, state) => const SearchView()),
+      GoRoute(path: '/', builder: (context, state) => const HomeView()),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
+      ),
     ],
   );
 }
