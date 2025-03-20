@@ -6,7 +6,7 @@ class ResponsiveConstant {
   static double width = 0;
   static double height = 0;
 
-  static EdgeInsets pagePadding = const EdgeInsets.symmetric(
+  static const EdgeInsets pagePadding = EdgeInsets.symmetric(
     horizontal: 12,
     vertical: 8,
   );

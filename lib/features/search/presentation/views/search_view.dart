@@ -7,11 +7,11 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
           padding: ResponsiveConstant.pagePadding,
-          child: const SearchViewBody(),
+          child: SearchViewBody(),
         ),
       ),
     );
