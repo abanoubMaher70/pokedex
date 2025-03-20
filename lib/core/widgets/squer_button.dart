@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/constants/constant_colors.dart';
 
 class SquerButton extends StatelessWidget {
   const SquerButton({
@@ -13,8 +12,7 @@ class SquerButton extends StatelessWidget {
   factory SquerButton.backButton(BuildContext context) {
     return SquerButton(
       onTap: () => Navigator.pop(context),
-      backgroundColor: ConstantColors.kPrimaryRed,
-      iconColor: Colors.white,
+      iconColor: Colors.black,
       icon: Icons.arrow_back_ios_rounded,
     );
   }
