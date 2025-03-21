@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconly/iconly.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
 
 class FavoritesViewBody extends StatelessWidget {
@@ -8,14 +11,26 @@ class FavoritesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MasonryGridExample();
+    return const MasonryGridExample();
   }
 }
 
-class MasonryGridExample extends StatelessWidget {
-  final List<int> heights = [100, 200, 150, 250, 180, 220, 130, 300];
+class MasonryGridExample extends StatefulWidget {
+  const MasonryGridExample({super.key});
 
-  MasonryGridExample({super.key});
+  @override
+  State<MasonryGridExample> createState() => _MasonryGridExampleState();
+}
+
+class _MasonryGridExampleState extends State<MasonryGridExample> {
+  final List<int> heights = [100, 200, 150, 250, 180, 220, 130, 300];
+  Color dominantColor = const Color(0xff394F59); // Default color
+
+  @override
+  void initState() {
+    super.initState();
+    _updatePalette();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +52,7 @@ class MasonryGridExample extends StatelessWidget {
                 height: heights[index].toDouble(),
                 margin: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: Colors.blueGrey[(index + 1) * 100],
+                  color: dominantColor,
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Image.network(
@@ -51,5 +66,20 @@ class MasonryGridExample extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _updatePalette() async {
+    final PaletteGenerator
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      NetworkImage(
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Random().nextInt(151)}.png',
+      ),
+    );
+
+    if (paletteGenerator.dominantColor != null) {
+      setState(() {
+        dominantColor = paletteGenerator.dominantColor!.color;
+      });
+    }
   }
 }
