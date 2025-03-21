@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
-import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
+import 'package:pokedex/core/widgets/custom_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_text_field.dart';
 import 'package:pokedex/features/search/presentation/views/widgets/search_list_view_builder.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconly/iconly.dart';
-import 'package:pokedex/core/widgets/custom_text_app_bar.dart';
+import 'package:pokedex/core/widgets/custom_app_bar.dart';
 
 class FavoritesViewBody extends StatelessWidget {
   const FavoritesViewBody({super.key});
