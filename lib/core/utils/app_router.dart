@@ -25,7 +25,10 @@ class AppRouter {
         path: '/',
         builder:
             (context, state) => BlocProvider(
-              create: (context) => FavoritePokemonCubit(locator<HomeRepo>()),
+              create:
+                  (context) =>
+                      FavoritePokemonCubit(locator<HomeRepo>())
+                        ..getFavoritePokemon(24),
               child: const HomeView(),
             ),
       ),
