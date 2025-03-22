@@ -6,26 +6,26 @@ part of 'pokemon_model_hive.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PokemonModelAdapter extends TypeAdapter<PokemonModel> {
+class PokemonModelHiveAdapter extends TypeAdapter<PokemonModelHive> {
   @override
   final int typeId = 0;
 
   @override
-  PokemonModel read(BinaryReader reader) {
+  PokemonModelHive read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return PokemonModel(
-      id: fields[0] as int?,
-      name: fields[1] as String?,
-      jsonData: fields[2] as String?,
+    return PokemonModelHive(
+      id: fields[0] as int,
+      name: fields[1] as String,
+      jsonData: fields[2] as String,
       palette: fields[3] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, PokemonModel obj) {
+  void write(BinaryWriter writer, PokemonModelHive obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)
@@ -44,7 +44,7 @@ class PokemonModelAdapter extends TypeAdapter<PokemonModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PokemonModelAdapter &&
+      other is PokemonModelHiveAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

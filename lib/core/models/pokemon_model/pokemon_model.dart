@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 import 'ability.dart';
-
 import 'held_item.dart';
 import 'move.dart';
 import 'species.dart';

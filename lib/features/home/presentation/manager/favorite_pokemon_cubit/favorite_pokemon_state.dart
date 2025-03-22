@@ -9,16 +9,22 @@ sealed class FavoritePokemonState extends Equatable {
 
 final class FavoritePokemonInitial extends FavoritePokemonState {}
 
-final class FavoritePokemonError extends FavoritePokemonState {
-  final String message;
-  const FavoritePokemonError(this.message);
-}
+final class FavoritePokemonEmpty extends FavoritePokemonState {}
 
 final class FavoritePokemonLoading extends FavoritePokemonState {}
-
-final class FavoritePokemonEmpty extends FavoritePokemonState {}
 
 final class FavoritePokemonSuccess extends FavoritePokemonState {
   final PokemonModel pokemon;
   const FavoritePokemonSuccess(this.pokemon);
+
+  @override
+  List<Object> get props => [pokemon];
+}
+
+final class FavoritePokemonError extends FavoritePokemonState {
+  final String message;
+  const FavoritePokemonError(this.message);
+
+  @override
+  List<Object> get props => [message];
 }

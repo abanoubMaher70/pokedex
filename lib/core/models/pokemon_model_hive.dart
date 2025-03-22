@@ -1,38 +1,49 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 
 part 'pokemon_model_hive.g.dart';
 
 @HiveType(typeId: 0)
-class PokemonModel extends Equatable {
+class PokemonModelHive extends Equatable {
   @HiveField(0)
-  final int? id;
+  final int id;
 
   @HiveField(1)
-  final String? name;
+  final String name;
 
   @HiveField(2)
-  final String? jsonData; // Store entire JSON as a string
+  final String jsonData;
 
   @HiveField(3)
-  final String? palette; // Store generated palette
+  final String? palette;
 
-  const PokemonModel({this.id, this.name, this.jsonData, this.palette});
+  const PokemonModelHive({
+    required this.id,
+    required this.name,
+    required this.jsonData,
+    this.palette,
+  });
 
-  /// Convert API JSON to model
-  factory PokemonModel.fromJson(Map<String, dynamic> json) => PokemonModel(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    jsonData: jsonEncode(json), // Save full JSON as a string
-  );
+  /// Convert API Model to Hive Model
+  factory PokemonModelHive.fromApiModel(PokemonModel pokemon) {
+    return PokemonModelHive(
+      id: pokemon.id ?? 0,
+      name: pokemon.name ?? 'Unknown',
+      jsonData: jsonEncode(pokemon.toJson()),
+    );
+  }
 
-  /// Convert model to JSON
-  Map<String, dynamic> toJson() => jsonDecode(jsonData ?? '{}');
+  /// Convert Hive Model back to API Model
+  PokemonModel toApiModel() {
+    final Map<String, dynamic> decodedJson = jsonDecode(jsonData);
+    return PokemonModel.fromJson(decodedJson);
+  }
 
-  /// Update the model to include the generated palette
-  PokemonModel copyWithPalette(String generatedPalette) {
-    return PokemonModel(
+  /// Update the model to include a generated palette
+  PokemonModelHive copyWithPalette(String generatedPalette) {
+    return PokemonModelHive(
       id: id,
       name: name,
       jsonData: jsonData,

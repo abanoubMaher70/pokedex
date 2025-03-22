@@ -1,15 +1,28 @@
 import 'package:hive/hive.dart';
 
-class HiveService {
-  static const String _pokemonBox = 'pokemonBox';
+class HiveService<T> {
+  HiveService(this.boxName);
 
-  Future<void> savePokemon(String name, Map<String, dynamic> data) async {
-    final box = await Hive.openBox(_pokemonBox);
-    await box.put(name, data);
+  final String boxName;
+  late final Box<T> _box;
+
+  Future<void> init() async {
+    _box = await Hive.openBox<T>(boxName);
   }
 
-  Future<Map<String, dynamic>?> getPokemon(String name) async {
-    final box = await Hive.openBox(_pokemonBox);
-    return box.get(name);
+  Future<void> saveData(int id, T data) async {
+    await _box.put(id, data);
+  }
+
+  T? getData(int id) {
+    return _box.get(id);
+  }
+
+  Future<void> deleteData(int id) async {
+    await _box.delete(id);
+  }
+
+  Future<void> close() async {
+    await _box.close();
   }
 }
