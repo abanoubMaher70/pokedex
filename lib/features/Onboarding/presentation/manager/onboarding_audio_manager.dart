@@ -1,4 +1,4 @@
-import 'package:pokedex/core/services/audio_services.dart';
+import 'package:pokedex/core/services/audio/audio_services.dart';
 
 class OnboardingViewModel {
   final AudioService _audioService = AudioService();
