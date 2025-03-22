@@ -15,9 +15,6 @@ class ApiServices {
 ///////////////////////////////////////
 //End points
 ///////////////////////////////////////
-//requset pokemon by id
-// https://pokeapi.co/api/v2/pokemon/{id or name}/
-
 //requset pokemon description by id
 //https://pokeapi.co/api/v2/pokemon-species/{id or name}/
 

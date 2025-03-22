@@ -1,0 +1,24 @@
+part of 'favorite_pokemon_cubit.dart';
+
+sealed class FavoritePokemonState extends Equatable {
+  const FavoritePokemonState();
+
+  @override
+  List<Object> get props => [];
+}
+
+final class FavoritePokemonInitial extends FavoritePokemonState {}
+
+final class FavoritePokemonError extends FavoritePokemonState {
+  final String message;
+  const FavoritePokemonError(this.message);
+}
+
+final class FavoritePokemonLoading extends FavoritePokemonState {}
+
+final class FavoritePokemonEmpty extends FavoritePokemonState {}
+
+final class FavoritePokemonSuccess extends FavoritePokemonState {
+  final PokemonModel pokemon;
+  const FavoritePokemonSuccess(this.pokemon);
+}
