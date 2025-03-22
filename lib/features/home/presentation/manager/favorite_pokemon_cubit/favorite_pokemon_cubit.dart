@@ -14,15 +14,8 @@ class FavoritePokemonCubit extends Cubit<FavoritePokemonState> {
   final Box<PokemonModel> pokemonBox;
 
   Future<void> getFavoritePokemon(int id) async {
-    if (pokemonBox.containsKey(id)) {
-      final cachedPokemon = pokemonBox.get(id);
-      emit(FavoritePokemonSuccess(cachedPokemon!));
-      return;
-    }
-
     emit(FavoritePokemonLoading());
     final result = await homeRepo.getFavoritePokemon(id: id);
-
     result.fold(
       (failure) => emit(FavoritePokemonError(failure.message)),
       (pokemon) => emit(FavoritePokemonSuccess(pokemon)),
