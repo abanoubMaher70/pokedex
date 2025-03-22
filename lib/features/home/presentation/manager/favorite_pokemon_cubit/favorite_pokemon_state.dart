@@ -14,7 +14,7 @@ final class FavoritePokemonEmpty extends FavoritePokemonState {}
 final class FavoritePokemonLoading extends FavoritePokemonState {}
 
 final class FavoritePokemonSuccess extends FavoritePokemonState {
-  final PokemonModel pokemon;
+  final PokemonModelHive pokemon;
   const FavoritePokemonSuccess(this.pokemon);
 
   @override

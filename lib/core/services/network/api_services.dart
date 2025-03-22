@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:pokedex/core/utils/service_locator.dart';
 
 class ApiServices {
-  ApiServices(this._dio);
+  ApiServices(Dio dio);
 
-  final Dio _dio;
+  final Dio _dio = locator<Dio>();
   final String _baseUrl = 'https://pokeapi.co/api/v2';
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {

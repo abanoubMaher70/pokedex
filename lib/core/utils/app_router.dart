@@ -1,6 +1,10 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:pokedex/features/favorites/presentation/views/favorites_view.dart';
+import 'package:pokedex/features/home/data/repos/home_repo.dart';
+import 'package:pokedex/features/home/presentation/manager/favorite_pokemon_cubit/favorite_pokemon_cubit.dart';
 import 'package:pokedex/features/home/presentation/views/home_view.dart';
 import 'package:pokedex/features/search/presentation/views/search_view.dart';
 
@@ -17,7 +21,14 @@ class AppRouter {
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
       ),
-      GoRoute(path: '/', builder: (context, state) => const HomeView()),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => FavoritePokemonCubit(locator<HomeRepo>()),
+              child: const HomeView(),
+            ),
+      ),
       GoRoute(
         path: kSearchView,
         builder: (context, state) => const SearchView(),

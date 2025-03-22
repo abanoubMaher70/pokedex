@@ -10,3 +10,11 @@ PokemonType convertPokemonType(String pokemonType) {
     (element) => element.name == pokemonType,
   );
 }
+
+Color convertStringToColor(String hexColor) {
+  String hex = hexColor.replaceFirst('#', '');
+  if (hex.length == 6) {
+    hex = 'FF$hex'; // Add alpha if missing (FF = fully opaque)
+  }
+  return Color(int.parse(hex, radix: 16));
+}

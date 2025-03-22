@@ -11,7 +11,6 @@ import 'type.dart';
 class PokemonModel extends Equatable {
   final List<Ability>? abilities;
   final int? baseExperience;
-
   final int? height;
   final List<HeldItem>? heldItems;
   final int? id;

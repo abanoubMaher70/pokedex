@@ -8,7 +8,7 @@ import 'package:pokedex/features/home/data/repos/home_repo_impl.dart';
 
 final GetIt locator = GetIt.instance;
 void setupLocator() async {
-  // Initialize Hive (if not already initialized)
+  // Initialize Hive
   await Hive.initFlutter();
 
   // Open Hive box before registering it

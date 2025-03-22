@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
+import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/utils/pokemon_utils.dart';
 
 class FavoritePokemonCard extends StatelessWidget {
-  const FavoritePokemonCard({super.key});
+  const FavoritePokemonCard({super.key, required this.pokemonHive});
+
+  final PokemonModelHive pokemonHive;
 
   @override
   Widget build(BuildContext context) {
+    final PokemonModel pokemon = pokemonHive.toApiModel();
+
     return Container(
       width: double.infinity,
       height: 300,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: const Color(0xff394F59),
+        color: convertStringToColor(pokemonHive.palette!),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Stack(
@@ -29,7 +36,8 @@ class FavoritePokemonCard extends StatelessWidget {
             child: Image.network(
               // 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/799.gif',
               // 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/50.gif',
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png',
+              // 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png',
+              pokemon.sprites!.other!.officialArtwork!.frontDefault!,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.none,
             ),
