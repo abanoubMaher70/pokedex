@@ -7,14 +7,13 @@ import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/core/utils/palette_generator.dart';
-import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {
-  final ApiServices apiService = locator<ApiServices>();
-  final Box<PokemonModelHive> pokemonBox = locator<Box<PokemonModelHive>>();
+  final ApiServices apiService;
+  final Box<PokemonModelHive> pokemonBox;
 
-  HomeRepoImpl(ApiServices apiServices, Box<PokemonModelHive> box);
+  HomeRepoImpl(this.apiService, this.pokemonBox);
 
   @override
   Future<Either<Failure, PokemonModelHive>> getPokemon({

@@ -4,7 +4,8 @@ import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 
 void main() async {
-  setupLocator();
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupServiceLocator();
   runApp(const Pokedex());
 }
 
