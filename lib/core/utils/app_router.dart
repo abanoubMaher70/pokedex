@@ -28,7 +28,7 @@ class AppRouter {
               create:
                   (context) =>
                       FavoritePokemonCubit(locator.get<HomeRepoImpl>())
-                        ..getFavoritePokemon(id: 799),
+                        ..getFavoritePokemon(id: 744),
               child: const HomeView(),
             ),
       ),

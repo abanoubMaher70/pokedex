@@ -17,7 +17,7 @@ class PokemonModelHive extends Equatable {
   final String jsonData;
 
   @HiveField(3)
-  final String? palette;
+  final int? palette;
 
   const PokemonModelHive({
     required this.id,
@@ -41,7 +41,7 @@ class PokemonModelHive extends Equatable {
   }
 
   /// Update the model to include a generated palette
-  PokemonModelHive copyWithPalette(String generatedPalette) {
+  PokemonModelHive copyWithPalette(int generatedPalette) {
     return PokemonModelHive(
       id: id,
       name: name,

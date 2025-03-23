@@ -18,13 +18,17 @@ Future<void> setupServiceLocator() async {
       Hive.registerAdapter(PokemonModelHiveAdapter());
     },
   );
+
+  // Register HiveService
+  locator.registerSingleton<HiveService<PokemonModelHive>>(hiveService);
+
   // Register Dio
   locator.registerLazySingleton<Dio>(() => Dio());
 
   // Register ApiServices
   locator.registerLazySingleton<ApiServices>(() => ApiServices(locator<Dio>()));
 
-  // Register HomeRepo
+  // Register HomeRepoImpl
   locator.registerLazySingleton<HomeRepoImpl>(
     () => HomeRepoImpl(
       locator<ApiServices>(),

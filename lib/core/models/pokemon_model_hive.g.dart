@@ -20,7 +20,7 @@ class PokemonModelHiveAdapter extends TypeAdapter<PokemonModelHive> {
       id: fields[0] as int,
       name: fields[1] as String,
       jsonData: fields[2] as String,
-      palette: fields[3] as String?,
+      palette: fields[3] as int?,
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
-import 'package:pokedex/core/utils/pokemon_utils.dart';
 
 class FavoritePokemonCard extends StatelessWidget {
   const FavoritePokemonCard({super.key, required this.pokemonHive});
@@ -17,7 +17,7 @@ class FavoritePokemonCard extends StatelessWidget {
       height: 300,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: convertStringToColor(pokemonHive.palette!),
+        color: Color(pokemonHive.palette!),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Stack(
@@ -48,72 +48,69 @@ class FavoritePokemonCard extends StatelessWidget {
   }
 }
 
-// import 'package:flutter/material.dart';
-// import 'package:palette_generator/palette_generator.dart';
+class FavoritePokemon extends StatefulWidget {
+  const FavoritePokemon({super.key});
 
-// class FavoritePokemonCard extends StatefulWidget {
-//   const FavoritePokemonCard({super.key});
+  @override
+  State<FavoritePokemon> createState() => _FavoritePokemonState();
+}
 
-//   @override
-//   State<FavoritePokemonCard> createState() => _FavoritePokemonCardState();
-// }
+class _FavoritePokemonState extends State<FavoritePokemon> {
+  Color dominantColor = const Color(0xff394F59); // Default color
+  @override
+  void initState() {
+    super.initState();
+    _updatePalette();
+  }
 
-// class _FavoritePokemonCardState extends State<FavoritePokemonCard> {
-//   Color dominantColor = const Color(0xff394F59); // Default color
-//   @override
-//   void initState() {
-//     super.initState();
-//     _updatePalette();
-//   }
+  Future<void> _updatePalette() async {
+    final PaletteGenerator
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      const NetworkImage(
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/744.png',
+      ),
+    );
 
-//   Future<void> _updatePalette() async {
-//     final PaletteGenerator
-//     paletteGenerator = await PaletteGenerator.fromImageProvider(
-//       const NetworkImage(
-//         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png',
-//       ),
-//     );
+    if (paletteGenerator.dominantColor != null) {
+      setState(() {
+        dominantColor = paletteGenerator.dominantColor!.color;
+      });
+    }
+  }
 
-//     if (paletteGenerator.dominantColor != null) {
-//       setState(() {
-//         dominantColor = paletteGenerator.dominantColor!.color;
-//       });
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: double.infinity,
-//       height: 300,
-//       padding: const EdgeInsets.all(8),
-//       decoration: BoxDecoration(
-//         color: dominantColor,
-//         borderRadius: BorderRadius.circular(12),
-//       ),
-//       child: Stack(
-//         children: [
-//           SizedBox(
-//             width: double.infinity,
-//             child: FittedBox(
-//               child: Text(
-//                 "ゼクロム",
-//                 style: TextStyle(color: Colors.white.withValues(alpha: 0.50)),
-//               ),
-//             ),
-//           ),
-//           SizedBox.expand(
-//             child: Image.network(
-//               'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png',
-//               fit: BoxFit.cover,
-//               filterQuality: FilterQuality.none,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 300,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: dominantColor,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Stack(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: FittedBox(
+              child: Text(
+                "ゼクロム",
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.50)),
+              ),
+            ),
+          ),
+          SizedBox.expand(
+            child: Image.network(
+              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png',
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.none,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 
 

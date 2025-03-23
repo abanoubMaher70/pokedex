@@ -11,17 +11,17 @@ import 'package:pokedex/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final ApiServices apiService;
-  final HiveService cachedHivePokemon;
+  final HiveService hiveService;
 
-  HomeRepoImpl(this.apiService, this.cachedHivePokemon);
+  HomeRepoImpl(this.apiService, this.hiveService);
 
   @override
   Future<Either<Failure, PokemonModelHive>> getPokemon({
     required int id,
   }) async {
     try {
-      if (cachedHivePokemon.box.containsKey(id)) {
-        final cachedPokemon = cachedHivePokemon.box.get(id);
+      if (hiveService.box.containsKey(id)) {
+        final cachedPokemon = hiveService.box.get(id);
         return right(cachedPokemon!);
       }
 
@@ -33,11 +33,11 @@ class HomeRepoImpl extends HomeRepo {
       );
 
       final pokemonHive = PokemonModelHive.fromApiModel(pokemon);
-      await cachedHivePokemon.save(pokemon.id!, pokemonHive);
+      await hiveService.save(pokemon.id!, pokemonHive);
 
       final palette = await paletteFuture;
       final updatedPokemonHive = pokemonHive.copyWithPalette(palette);
-      await cachedHivePokemon.save(pokemon.id!, updatedPokemonHive);
+      await hiveService.save(pokemon.id!, updatedPokemonHive);
 
       return right(updatedPokemonHive);
     } on DioException catch (e) {
