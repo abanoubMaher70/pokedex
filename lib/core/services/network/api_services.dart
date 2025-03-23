@@ -14,10 +14,6 @@ class ApiServices {
 
 ///////////////////////////////////////
 //End points
-///////////////////////////////////////
-//requset pokemon description by id
-//https://pokeapi.co/api/v2/pokemon-species/{id or name}/
-
 
 //filtring pokemons by there type
 // https://pokeapi.co/api/v2/type/{type_name}

@@ -17,12 +17,16 @@ class PokemonModelHive extends Equatable {
   final String jsonData;
 
   @HiveField(3)
+  final String? jsonDescData;
+
+  @HiveField(4)
   final int? palette;
 
   const PokemonModelHive({
     required this.id,
     required this.name,
     required this.jsonData,
+    this.jsonDescData,
     this.palette,
   });
 
@@ -40,16 +44,23 @@ class PokemonModelHive extends Equatable {
     return PokemonModel.fromJson(jsonDecode(jsonData) as Map<String, dynamic>);
   }
 
-  /// Update the model to include a generated palette
-  PokemonModelHive copyWithPalette(int generatedPalette) {
+  /// Update the model with palette and description data
+  PokemonModelHive copyWith({
+    int? id,
+    String? name,
+    String? jsonData,
+    String? jsonDescData,
+    int? palette,
+  }) {
     return PokemonModelHive(
-      id: id,
-      name: name,
-      jsonData: jsonData,
-      palette: generatedPalette,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      jsonData: jsonData ?? this.jsonData,
+      jsonDescData: jsonDescData ?? this.jsonDescData,
+      palette: palette ?? this.palette,
     );
   }
 
   @override
-  List<Object?> get props => [id, name, jsonData, palette];
+  List<Object?> get props => [id, name, jsonData, jsonDescData, palette];
 }

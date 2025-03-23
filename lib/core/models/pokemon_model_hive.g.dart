@@ -20,14 +20,15 @@ class PokemonModelHiveAdapter extends TypeAdapter<PokemonModelHive> {
       id: fields[0] as int,
       name: fields[1] as String,
       jsonData: fields[2] as String,
-      palette: fields[3] as int?,
+      jsonDescData: fields[3] as String?,
+      palette: fields[4] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, PokemonModelHive obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,6 +36,8 @@ class PokemonModelHiveAdapter extends TypeAdapter<PokemonModelHive> {
       ..writeByte(2)
       ..write(obj.jsonData)
       ..writeByte(3)
+      ..write(obj.jsonDescData)
+      ..writeByte(4)
       ..write(obj.palette);
   }
 

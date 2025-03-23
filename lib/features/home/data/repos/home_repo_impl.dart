@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -19,30 +20,40 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, PokemonModelHive>> getPokemon({
     required int id,
   }) async {
+    return await _getFromCacheOrFetch(id);
+  }
+
+  Future<Either<Failure, PokemonModelHive>> _getFromCacheOrFetch(int id) async {
     try {
-      if (hiveService.box.containsKey(id)) {
-        final cachedPokemon = hiveService.box.get(id);
-        return right(cachedPokemon!);
-      }
+      // Check cache first
+      final cachedPokemon = hiveService.box.get(id);
+      if (cachedPokemon != null) return right(cachedPokemon);
 
-      final response = await apiService.get(endPoint: 'pokemon/$id/');
-      final pokemon = PokemonModel.fromJson(response);
+      // Fetch data from API
+      final responses = await Future.wait([
+        apiService.get(endPoint: 'pokemon/$id/'),
+        apiService.get(endPoint: 'pokemon-species/$id/'),
+      ]);
 
-      final paletteFuture = PaletteGeneratorUtil.getPalette(
-        pokemon.sprites!.frontDefault!,
+      final pokemonData = responses[0];
+      final speciesData = responses[1];
+
+      final pokemon = PokemonModel.fromJson(pokemonData);
+      final palette = await PaletteGeneratorUtil.getPalette(
+        pokemon.sprites?.frontDefault ?? '',
       );
 
-      final pokemonHive = PokemonModelHive.fromApiModel(pokemon);
+      final pokemonHive = PokemonModelHive.fromApiModel(
+        pokemon,
+      ).copyWith(jsonDescData: jsonEncode(speciesData), palette: palette);
+
       await hiveService.save(pokemon.id!, pokemonHive);
 
-      final palette = await paletteFuture;
-      final updatedPokemonHive = pokemonHive.copyWithPalette(palette);
-      await hiveService.save(pokemon.id!, updatedPokemonHive);
-
-      return right(updatedPokemonHive);
+      return right(pokemonHive);
     } on DioException catch (e) {
+      log('DioException: ${e.message}');
       return left(ServerFailure.fromDioException(e));
-    } on Exception catch (e) {
+    } catch (e) {
       log('Unexpected error: $e');
       return left(ServerFailure(e.toString()));
     }
