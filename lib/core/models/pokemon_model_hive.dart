@@ -37,8 +37,7 @@ class PokemonModelHive extends Equatable {
 
   /// Convert Hive Model back to API Model
   PokemonModel toApiModel() {
-    final Map<String, dynamic> decodedJson = jsonDecode(jsonData);
-    return PokemonModel.fromJson(decodedJson);
+    return PokemonModel.fromJson(jsonDecode(jsonData) as Map<String, dynamic>);
   }
 
   /// Update the model to include a generated palette

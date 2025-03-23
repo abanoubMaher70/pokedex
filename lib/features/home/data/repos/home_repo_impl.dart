@@ -1,27 +1,27 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:hive/hive.dart';
 import 'package:pokedex/core/errors/failuers.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/core/utils/palette_generator.dart';
 import 'package:pokedex/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final ApiServices apiService;
-  final Box<PokemonModelHive> pokemonBox;
+  final HiveService cachedHivePokemon;
 
-  HomeRepoImpl(this.apiService, this.pokemonBox);
+  HomeRepoImpl(this.apiService, this.cachedHivePokemon);
 
   @override
   Future<Either<Failure, PokemonModelHive>> getPokemon({
     required int id,
   }) async {
     try {
-      if (pokemonBox.containsKey(id)) {
-        final cachedPokemon = pokemonBox.get(id);
+      if (cachedHivePokemon.box.containsKey(id)) {
+        final cachedPokemon = cachedHivePokemon.box.get(id);
         return right(cachedPokemon!);
       }
 
@@ -33,17 +33,17 @@ class HomeRepoImpl extends HomeRepo {
       );
 
       final pokemonHive = PokemonModelHive.fromApiModel(pokemon);
-      await pokemonBox.put(pokemon.id, pokemonHive);
+      await cachedHivePokemon.save(pokemon.id!, pokemonHive);
 
       final palette = await paletteFuture;
       final updatedPokemonHive = pokemonHive.copyWithPalette(palette);
-      await pokemonBox.put(pokemon.id, updatedPokemonHive);
+      await cachedHivePokemon.save(pokemon.id!, updatedPokemonHive);
 
       return right(updatedPokemonHive);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
-    } catch (e, stacktrace) {
-      log('Unexpected error: $e\n$stacktrace');
+    } on Exception catch (e) {
+      log('Unexpected error: $e');
       return left(ServerFailure(e.toString()));
     }
   }

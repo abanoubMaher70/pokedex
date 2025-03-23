@@ -29,7 +29,7 @@ class AudioService with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
-      stopAudio(); // Stop audio when app goes to background
+      stopAudio();
     } else if (state == AppLifecycleState.resumed) {
       resume();
     }
