@@ -1,11 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:pokedex/features/favorites/presentation/views/favorites_view.dart';
 import 'package:pokedex/features/home/data/repos/home_repo_impl.dart';
 import 'package:pokedex/features/home/presentation/manager/favorite_pokemon_cubit/favorite_pokemon_cubit.dart';
 import 'package:pokedex/features/home/presentation/views/home_view.dart';
+import 'package:pokedex/features/home/presentation/views/pokemon_details_view.dart';
 import 'package:pokedex/features/search/presentation/views/search_view.dart';
 
 class AppRouter {
@@ -14,6 +16,7 @@ class AppRouter {
   static const kHomeView = '/homeView';
   static const kSearchView = '/searchView';
   static const kFavoritesView = '/favoritesView';
+  static const kPokemonDetailsView = '/PokemonDetailsView';
 
   static final router = GoRouter(
     routes: [
@@ -28,7 +31,7 @@ class AppRouter {
               create:
                   (context) =>
                       FavoritePokemonCubit(locator.get<HomeRepoImpl>())
-                        ..getFavoritePokemon(id: 6),
+                        ..getFavoritePokemon(id: 644),
               child: const HomeView(),
             ),
       ),
@@ -39,6 +42,14 @@ class AppRouter {
       GoRoute(
         path: kFavoritesView,
         builder: (context, state) => const FavoritesView(),
+      ),
+
+      GoRoute(
+        path: kPokemonDetailsView,
+        builder:
+            (context, state) => PokemonDetailsView(
+              pokemonHive: state.extra as PokemonModelHive,
+            ),
       ),
     ],
   );

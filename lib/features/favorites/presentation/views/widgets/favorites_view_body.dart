@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
+import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
 
@@ -53,17 +55,24 @@ class _MasonryGridExampleState extends State<MasonryGridExample> {
             itemBuilder: (context, index) {
               final PokemonModel pokemon = hiveService[index].toPokemonModel();
 
-              return Container(
-                height: heights[index].toDouble(),
-                margin: const EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  color: Color(hiveService[index].palette!),
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Image.network(
-                  filterQuality: FilterQuality.none,
-                  pokemon.sprites?.frontDefault! ?? '',
-                  fit: BoxFit.contain,
+              return GestureDetector(
+                onTap:
+                    () => GoRouter.of(context).push(
+                      AppRouter.kPokemonDetailsView,
+                      extra: hiveService[index],
+                    ),
+                child: Container(
+                  height: heights[index].toDouble(),
+                  margin: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Color(hiveService[index].palette!),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Image.network(
+                    filterQuality: FilterQuality.none,
+                    pokemon.sprites?.frontDefault! ?? '',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               );
             },
