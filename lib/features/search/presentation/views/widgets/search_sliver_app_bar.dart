@@ -15,7 +15,7 @@ class SearchSliverAppBar extends StatelessWidget {
       floating: true,
       elevation: 0,
       expandedHeight: 130,
-      title: Text('Pokedex search', style: TextStyles.textStyle14),
+      title: Text('Pokédex search', style: TextStyles.textStyle14),
       centerTitle: true,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(70),
