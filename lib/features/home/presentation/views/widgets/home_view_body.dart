@@ -21,7 +21,6 @@ class HomeViewBody extends StatelessWidget {
         const CustomHomeAppBar(),
         const Text("Your Pokemon"),
         const SizedBox(height: 4),
-        const FavoritePokemon(),
         BlocBuilder<FavoritePokemonCubit, FavoritePokemonState>(
           builder: (context, state) {
             if (state is FavoritePokemonLoading) {

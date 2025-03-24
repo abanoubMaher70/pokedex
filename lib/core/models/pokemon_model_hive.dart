@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pokedex/core/models/description_model/description_model.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 
 part 'pokemon_model_hive.g.dart';
@@ -40,8 +41,15 @@ class PokemonModelHive extends Equatable {
   }
 
   /// Convert Hive Model back to API Model
-  PokemonModel toApiModel() {
+  PokemonModel toPokemonModel() {
     return PokemonModel.fromJson(jsonDecode(jsonData) as Map<String, dynamic>);
+  }
+
+  /// Convert Hive Model back to Description API Model
+  DescriptionModel toDescriptionModel() {
+    return DescriptionModel.fromJson(
+      jsonDecode(jsonDescData!) as Map<String, dynamic>,
+    );
   }
 
   /// Update the model with palette and description data

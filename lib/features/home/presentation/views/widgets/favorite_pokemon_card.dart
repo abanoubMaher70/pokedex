@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:palette_generator/palette_generator.dart';
+import 'package:pokedex/core/models/description_model/description_model.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 
@@ -10,7 +10,8 @@ class FavoritePokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PokemonModel pokemon = pokemonHive.toApiModel();
+    final PokemonModel pokemon = pokemonHive.toPokemonModel();
+    final DescriptionModel pokemonDesc = pokemonHive.toDescriptionModel();
 
     return Container(
       width: double.infinity,
@@ -27,7 +28,7 @@ class FavoritePokemonCard extends StatelessWidget {
             width: double.infinity,
             child: FittedBox(
               child: Text(
-                "ゼクロム",
+                pokemonDesc.flavorTextEntries?[0].flavorText ?? '',
                 style: TextStyle(color: Colors.white.withValues(alpha: 0.50)),
               ),
             ),
@@ -47,77 +48,7 @@ class FavoritePokemonCard extends StatelessWidget {
     );
   }
 }
-
-class FavoritePokemon extends StatefulWidget {
-  const FavoritePokemon({super.key});
-
-  @override
-  State<FavoritePokemon> createState() => _FavoritePokemonState();
-}
-
-class _FavoritePokemonState extends State<FavoritePokemon> {
-  Color dominantColor = const Color(0xff394F59); // Default color
-  @override
-  void initState() {
-    super.initState();
-    _updatePalette();
-  }
-
-  Future<void> _updatePalette() async {
-    final PaletteGenerator
-    paletteGenerator = await PaletteGenerator.fromImageProvider(
-      const NetworkImage(
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/744.png',
-      ),
-    );
-
-    if (paletteGenerator.dominantColor != null) {
-      setState(() {
-        dominantColor = paletteGenerator.dominantColor!.color;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 300,
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: dominantColor,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Stack(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: FittedBox(
-              child: Text(
-                "ゼクロム",
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.50)),
-              ),
-            ),
-          ),
-          SizedBox.expand(
-            child: Image.network(
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png',
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.none,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-/* 
-
-
+/*
 class ImagePaletteWidget extends StatefulWidget {
   final String imageUrl;
 

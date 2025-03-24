@@ -40,7 +40,7 @@ class HomeRepoImpl extends HomeRepo {
 
       final pokemon = PokemonModel.fromJson(pokemonData);
       final palette = await PaletteGeneratorUtil.getPalette(
-        pokemon.sprites?.frontDefault ?? '',
+        pokemon.sprites?.other?.officialArtwork?.frontDefault ?? '',
       );
 
       final pokemonHive = PokemonModelHive.fromApiModel(
