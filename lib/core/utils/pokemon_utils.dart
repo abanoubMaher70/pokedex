@@ -18,3 +18,10 @@ Color convertStringToColor(String hexColor) {
   }
   return Color(int.parse(hex, radix: 16));
 }
+
+String cleanText(String text) {
+  return text.replaceAll(
+    RegExp(r'[\n\f]'),
+    ' ',
+  ); // Replace \n and \f with spaces
+}

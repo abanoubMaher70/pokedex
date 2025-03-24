@@ -54,66 +54,48 @@ class PokemonDetailsViewBody extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: screenHeight * 0.12,
-                left: 5,
+                bottom: screenHeight * 0.13,
+                left: 6,
                 child: PokemonTypeIcon(
                   pokemonType: convertPokemonType(
                     pokemon.types!.first.type!.name!,
                   ),
-                  iconSize: 25,
+                  iconSize: 23,
                 ),
               ),
               Positioned(
-                bottom: screenHeight * 0.135,
-                left: 75,
-                child: Container(
-                  color: Colors.transparent,
-                  child: SizedBox(
-                    width: screenWidth * 0.50,
-                    child: FittedBox(
-                      child: Text(
-                        softWrap: true,
-                        pokemonDesc.genera![7].genus ?? "Unknown",
-                        style: TextStyle(color: ConstantColors.kWhiteTextColor),
-                      ),
+                bottom: screenHeight * 0.14,
+                left: 65,
+                child: SizedBox(
+                  width: screenWidth * 0.45,
+                  child: FittedBox(
+                    child: Text(
+                      softWrap: true,
+                      pokemonDesc.genera![7].genus ?? "Unknown",
+                      style: TextStyle(color: ConstantColors.kWhiteTextColor),
                     ),
                   ),
                 ),
               ),
               Positioned(
                 bottom: 0,
-                left: 5,
-                child: Container(
-                  color: Colors.transparent,
+                left: 4,
+                right: 4,
+                child: FittedBox(
                   child: SizedBox(
                     width: screenWidth,
-                    child: FittedBox(
-                      child: Text(
-                        softWrap: true,
-                        pokemonDesc.flavorTextEntries?[7].flavorText ??
+                    height: screenHeight * 0.12,
+                    child: Text(
+                      softWrap: true,
+                      cleanText(
+                        pokemonDesc.flavorTextEntries?[1].flavorText ??
                             "Unknown",
-                        style: TextStyle(color: ConstantColors.kWhiteTextColor),
                       ),
+                      style: TextStyle(color: ConstantColors.kWhiteTextColor),
                     ),
                   ),
                 ),
               ),
-              // Positioned(
-              //   top: screenHeight * 0.60,
-              //   left: -100,
-              //   width: screenWidth * 0.65,
-              //   child: Transform.rotate(
-              //     angle: 90 * 3.14 / 180,
-              //     child: SizedBox(
-              //       child: FittedBox(
-              //         child: Text(
-              //           pokemonDesc.names?[9].name ?? "Unknown",
-              //           style: TextStyle(color: ConstantColors.kWhiteTextColor),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
