@@ -1,9 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconly/iconly.dart';
-import 'package:palette_generator/palette_generator.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
+import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/services/hive_service.dart';
+import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
 
 class FavoritesViewBody extends StatelessWidget {
@@ -24,12 +25,14 @@ class MasonryGridExample extends StatefulWidget {
 
 class _MasonryGridExampleState extends State<MasonryGridExample> {
   final List<int> heights = [100, 200, 150, 250, 180, 220, 130, 300];
-  Color dominantColor = const Color(0xff394F59); // Default color
+  Color dominantColor = const Color(0xff394F59);
+
+  final List<PokemonModelHive> hiveService =
+      locator.get<HiveService<PokemonModelHive>>().getAll();
 
   @override
   void initState() {
     super.initState();
-    _updatePalette();
   }
 
   @override
@@ -46,18 +49,20 @@ class _MasonryGridExampleState extends State<MasonryGridExample> {
             gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, // 2 columns
             ),
-            itemCount: heights.length,
+            itemCount: hiveService.length,
             itemBuilder: (context, index) {
+              final PokemonModel pokemon = hiveService[index].toPokemonModel();
+
               return Container(
                 height: heights[index].toDouble(),
                 margin: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: dominantColor,
+                  color: Color(hiveService[index].palette!),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Image.network(
                   filterQuality: FilterQuality.none,
-                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${(index + 1)}.png',
+                  pokemon.sprites?.frontDefault! ?? '',
                   fit: BoxFit.contain,
                 ),
               );
@@ -66,20 +71,5 @@ class _MasonryGridExampleState extends State<MasonryGridExample> {
         ),
       ],
     );
-  }
-
-  Future<void> _updatePalette() async {
-    final PaletteGenerator
-    paletteGenerator = await PaletteGenerator.fromImageProvider(
-      NetworkImage(
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Random().nextInt(151)}.png',
-      ),
-    );
-
-    if (paletteGenerator.dominantColor != null) {
-      setState(() {
-        dominantColor = paletteGenerator.dominantColor!.color;
-      });
-    }
   }
 }

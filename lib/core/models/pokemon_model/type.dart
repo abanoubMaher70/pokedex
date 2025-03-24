@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:pokedex/core/models/pokemon_model/item.dart';
 
 class Type extends Equatable {
   final int? slot;
-  final Type? type;
+  final Item? type;
 
   const Type({this.slot, this.type});
 
@@ -11,7 +12,7 @@ class Type extends Equatable {
     type:
         json['type'] == null
             ? null
-            : Type.fromJson(json['type'] as Map<String, dynamic>),
+            : Item.fromJson(json['type'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {'slot': slot, 'type': type?.toJson()};
