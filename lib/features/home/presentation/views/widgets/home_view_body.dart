@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const CustomHomeAppBar(),
+        CustomHomeAppBar(),
         const Text("Your Pokemon"),
         const SizedBox(height: 4),
         BlocBuilder<FavoritePokemonCubit, FavoritePokemonState>(
