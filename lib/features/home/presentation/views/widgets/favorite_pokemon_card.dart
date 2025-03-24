@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/models/description_model/description_model.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
@@ -29,16 +30,9 @@ class FavoritePokemonCard extends StatelessWidget {
             width: double.infinity,
             child: FittedBox(
               child: Text(
-                pokemonDesc.flavorTextEntries?[0].flavorText ?? '',
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.50)),
+                pokemonDesc.names?[9].name ?? "Unknown",
+                style: TextStyle(color: ConstantColors.kWhiteTextColor),
               ),
-            ),
-          ),
-          SizedBox.expand(
-            child: Image.network(
-              pokemon.sprites!.other!.officialArtwork!.frontDefault!,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.none,
             ),
           ),
           SizedBox.expand(

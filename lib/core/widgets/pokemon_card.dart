@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
+import 'package:pokedex/core/widgets/custom_cached_network_image.dart';
 
 class PokemonCard extends StatelessWidget {
   const PokemonCard({super.key, required this.pokemonHive});
@@ -30,14 +32,13 @@ class PokemonCard extends StatelessWidget {
               Text(
                 "#${pokemon.id.toString().padLeft(3, '0')}",
                 style: TextStyles.textStyle12.copyWith(
-                  color: Colors.white.withValues(alpha: 0.50),
+                  color: ConstantColors.kWhiteTextColor,
                 ),
               ),
               Text(
                 pokemon.name!,
                 style: TextStyles.textStyle20.copyWith(
-                  color: Colors.white.withValues(alpha: 0.50),
-                  // color: Colors.black,
+                  color: ConstantColors.kWhiteTextColor,
                 ),
               ),
               // PokemonTypeIcon(
@@ -50,11 +51,10 @@ class PokemonCard extends StatelessWidget {
           Positioned(
             right: -20,
             top: -5,
-            child: Image.network(
+            child: CustomCachedNetworkImage(
               height: 155,
-              filterQuality: FilterQuality.none,
-              pokemon.sprites?.other?.officialArtwork?.frontDefault ?? '',
-              fit: BoxFit.cover,
+              pokemonImage:
+                  pokemon.sprites!.other!.officialArtwork!.frontDefault!,
             ),
           ),
         ],
