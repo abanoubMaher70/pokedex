@@ -33,7 +33,7 @@ class SearchSliverAppBar extends StatelessWidget {
                 (p0) => {
                   BlocProvider.of<SearchCubit>(
                     context,
-                  ).searchRepo.searchPokemonById(id: p0 ?? '1'),
+                  ).searchPokemonById(id: p0 ?? '1'),
                 },
           ),
         ),
