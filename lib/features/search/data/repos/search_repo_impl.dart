@@ -8,22 +8,24 @@ import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/core/utils/palette_generator.dart';
-import 'package:pokedex/features/home/data/repos/home_repo.dart';
+import 'package:pokedex/features/search/data/repos/search_repo.dart';
 
-class SearchRepoImpl extends HomeRepo {
+class SearchRepoImpl extends SearchRepo {
   final ApiServices apiService;
   final HiveService hiveService;
 
   SearchRepoImpl(this.apiService, this.hiveService);
 
   @override
-  Future<Either<Failure, PokemonModelHive>> getPokemon({
-    required int id,
+  Future<Either<Failure, PokemonModelHive>> searchPokemonById({
+    required String id,
   }) async {
     return await _getFromCacheOrFetch(id);
   }
 
-  Future<Either<Failure, PokemonModelHive>> _getFromCacheOrFetch(int id) async {
+  Future<Either<Failure, PokemonModelHive>> _getFromCacheOrFetch(
+    String id,
+  ) async {
     try {
       // Check cache first
       final cachedPokemon = hiveService.box.get(id);

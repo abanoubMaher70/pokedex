@@ -6,6 +6,7 @@ import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/features/home/data/repos/home_repo_impl.dart';
+import 'package:pokedex/features/search/data/repos/search_repo_impl.dart';
 
 final GetIt locator = GetIt.instance;
 
@@ -31,6 +32,14 @@ Future<void> setupServiceLocator() async {
   // Register HomeRepoImpl
   locator.registerLazySingleton<HomeRepoImpl>(
     () => HomeRepoImpl(
+      locator<ApiServices>(),
+      locator<HiveService<PokemonModelHive>>(),
+    ),
+  );
+
+  // Register HomeRepoImpl
+  locator.registerLazySingleton<SearchRepoImpl>(
+    () => SearchRepoImpl(
       locator<ApiServices>(),
       locator<HiveService<PokemonModelHive>>(),
     ),

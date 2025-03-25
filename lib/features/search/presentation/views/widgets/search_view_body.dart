@@ -7,9 +7,9 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
-      slivers: [const SearchSliverAppBar(), SearchListViewBuilder()],
+    return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
+      slivers: [SearchSliverAppBar(), SearchListViewBuilder()],
     );
   }
 }

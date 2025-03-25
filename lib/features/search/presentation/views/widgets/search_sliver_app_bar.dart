@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/custom_text_field.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
+import 'package:pokedex/features/search/presentation/manager/search_cubit/search_cubit.dart';
 
 class SearchSliverAppBar extends StatelessWidget {
   const SearchSliverAppBar({super.key});
@@ -27,6 +29,12 @@ class SearchSliverAppBar extends StatelessWidget {
             suffix: const Icon(IconlyLight.search),
             textStyle: TextStyles.textStyle14,
             fillColor: Colors.white,
+            onSubmitted:
+                (p0) => {
+                  BlocProvider.of<SearchCubit>(
+                    context,
+                  ).searchRepo.searchPokemonById(id: p0 ?? '1'),
+                },
           ),
         ),
       ),
