@@ -6,16 +6,18 @@ class CustomCachedNetworkImage extends StatelessWidget {
     super.key,
     required this.pokemonImage,
     this.height,
+    this.fit,
   });
 
   final String pokemonImage;
   final double? height;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: pokemonImage,
-      fit: BoxFit.cover,
+      fit: fit ?? BoxFit.cover,
       height: height,
       filterQuality: FilterQuality.none,
       errorWidget:

@@ -14,14 +14,16 @@ PokemonType convertPokemonType(String pokemonType) {
 Color convertStringToColor(String hexColor) {
   String hex = hexColor.replaceFirst('#', '');
   if (hex.length == 6) {
-    hex = 'FF$hex'; // Add alpha if missing (FF = fully opaque)
+    hex = 'FF$hex';
   }
   return Color(int.parse(hex, radix: 16));
 }
 
 String cleanText(String text) {
-  return text.replaceAll(
-    RegExp(r'[\n\f]'),
-    ' ',
-  ); // Replace \n and \f with spaces
+  return text.replaceAll(RegExp(r'[\n\f]'), ' ');
+}
+
+double generateHeight(int index) {
+  final List<double> predefinedHeights = [100, 150, 200, 250, 300];
+  return predefinedHeights[index % predefinedHeights.length];
 }

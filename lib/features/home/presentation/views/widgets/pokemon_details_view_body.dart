@@ -125,3 +125,10 @@ class PokemonDetailsViewBody extends StatelessWidget {
     );
   }
 }
+
+/*
+    // Find the English genus
+    final genusEntry = genera.firstWhere(
+      (g) => g['language']['name'] == 'en',
+      orElse: () => null,
+    ); */
