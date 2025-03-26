@@ -78,7 +78,7 @@ class PokemonDetailsViewBody extends StatelessWidget {
   /// Displays Pokémon Type Icon
   Widget buildPokemonTypeInformation(double screenWidth, double screenHeight) {
     return Positioned(
-      bottom: screenHeight * 0.14,
+      bottom: screenHeight * 0.13,
       left: 6,
       child: Row(
         spacing: 12,
@@ -87,13 +87,17 @@ class PokemonDetailsViewBody extends StatelessWidget {
             pokemonType: convertPokemonType(
               pokemonHive.toPokemonModel().types!.first.type!.name!,
             ),
-            iconSize: 23,
+            iconSize: 22.5,
           ),
           SizedBox(
-            width: screenWidth * 0.45,
             child: FittedBox(
               child: Text(
-                pokemonHive.toDescriptionModel().genera?[7].genus ?? "Unknown",
+                pokemonHive
+                        .toDescriptionModel()
+                        .genera
+                        ?.firstWhere((g) => g.language!.name == 'en')
+                        .genus ??
+                    "Unknown",
                 style: TextStyle(color: ConstantColors.kWhiteTextColor),
               ),
             ),
@@ -107,17 +111,18 @@ class PokemonDetailsViewBody extends StatelessWidget {
   Widget buildPokemonDescription(double screenWidth, double screenHeight) {
     return Positioned(
       bottom: 0,
-      left: 6,
-      right: 6,
+      left: 8,
+      right: 8,
       child: FittedBox(
         child: SizedBox(
-          width: screenWidth,
+          width: screenWidth * 1.1,
           height: screenHeight * 0.14,
           child: Text(
             cleanText(
               pokemonHive
                       .toDescriptionModel()
-                      .flavorTextEntries?[1]
+                      .flavorTextEntries
+                      ?.firstWhere((f) => f.language!.name == 'en')
                       .flavorText ??
                   "Unknown",
             ),
@@ -128,10 +133,3 @@ class PokemonDetailsViewBody extends StatelessWidget {
     );
   }
 }
-
-/*
-    // Find the English genus
-    final genusEntry = genera.firstWhere(
-      (g) => g['language']['name'] == 'en',
-      orElse: () => null,
-    ); */
