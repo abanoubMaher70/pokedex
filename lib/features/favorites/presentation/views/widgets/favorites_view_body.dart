@@ -11,7 +11,7 @@ class FavoritesViewBody extends StatelessWidget {
     return const Column(
       children: [
         CustomAppBar(
-          title: 'Favorites',
+          title: 'Your Collection',
           leading: Icon(IconlyBold.heart, size: 30, color: Colors.red),
         ),
         MasonryGridViewBody(),

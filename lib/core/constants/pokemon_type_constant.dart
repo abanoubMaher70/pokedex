@@ -46,41 +46,41 @@ extension PokemonTypeConstant on PokemonType {
   Color get foregroundColor {
     switch (this) {
       case PokemonType.fire:
-        return const Color(0xFFF08030);
+        return const Color(0xFFEE8130);
       case PokemonType.water:
-        return const Color(0xFF6890F0);
+        return const Color(0xFF6390F0);
       case PokemonType.grass:
-        return const Color(0xFF78C850);
+        return const Color(0xFF7AC74C);
       case PokemonType.electric:
-        return const Color(0xFFF8D030);
+        return const Color(0xFFF7D02C);
       case PokemonType.psychic:
-        return const Color(0xFFF85888);
+        return const Color(0xFFF95587);
       case PokemonType.ice:
-        return const Color(0xFF98D8D8);
+        return const Color(0xFF96D9D6);
       case PokemonType.dragon:
-        return const Color(0xFF7038F8);
+        return const Color(0xFF6F35FC);
       case PokemonType.dark:
-        return const Color(0xFF705848);
+        return const Color(0xFF5A4A42);
       case PokemonType.fairy:
-        return const Color(0xFFEE99AC);
+        return const Color(0xFFD685AD);
       case PokemonType.steel:
-        return const Color(0xFFB8B8D0);
+        return const Color(0xFF8D8DAA);
       case PokemonType.rock:
-        return const Color(0xFFB8A038);
+        return const Color(0xFF9D8533);
       case PokemonType.ground:
-        return const Color(0xFFE0C068);
+        return const Color(0xFFE2BF65);
       case PokemonType.bug:
-        return const Color(0xFFA8B820);
+        return const Color(0xFFA6B91A);
       case PokemonType.ghost:
-        return const Color(0xFF705898);
+        return const Color(0xFF5D4375);
       case PokemonType.poison:
-        return const Color(0xFFA040A0);
+        return const Color(0xFFA33EA1);
       case PokemonType.normal:
-        return const Color(0xFFA8A878);
+        return const Color(0xFFA8A77A);
       case PokemonType.fighting:
-        return const Color(0xFFC03028);
+        return const Color(0xFFC22E28);
       case PokemonType.flying:
-        return const Color(0xFFA890F0);
+        return const Color(0xFF8571DB);
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
@@ -22,6 +23,8 @@ class PokemonDetailsViewBody extends StatelessWidget {
         CustomAppBar(
           title: pokemonHive.name,
           titleColor: ConstantColors.kWhiteTextColor,
+          // leading: const Icon(IconlyLight.heart, size: 28),
+          leading: const Icon(IconlyBold.heart, size: 28, color: Colors.red),
         ),
         Expanded(
           child: Stack(
