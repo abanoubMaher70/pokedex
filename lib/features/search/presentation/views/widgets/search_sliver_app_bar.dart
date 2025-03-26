@@ -29,12 +29,14 @@ class SearchSliverAppBar extends StatelessWidget {
             suffix: const Icon(IconlyLight.search),
             textStyle: TextStyles.textStyle14,
             fillColor: Colors.white,
-            onSubmitted:
-                (p0) => {
-                  BlocProvider.of<SearchCubit>(
-                    context,
-                  ).searchPokemonById(id: p0 ?? '1'),
-                },
+            keyboardType: TextInputType.number,
+            onChanged: (p0) {
+              if (p0.isNotEmpty) {
+                context.read<SearchCubit>().searchPokemonById(
+                  id: int.parse(p0),
+                );
+              }
+            },
           ),
         ),
       ),

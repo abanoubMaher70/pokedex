@@ -18,17 +18,15 @@ class SearchRepoImpl extends SearchRepo {
 
   @override
   Future<Either<Failure, PokemonModelHive>> searchPokemonById({
-    required String id,
+    required int id,
   }) async {
     return await _getFromCacheOrFetch(id);
   }
 
-  Future<Either<Failure, PokemonModelHive>> _getFromCacheOrFetch(
-    String id,
-  ) async {
+  Future<Either<Failure, PokemonModelHive>> _getFromCacheOrFetch(int id) async {
     try {
       // Check cache first
-      final cachedPokemon = hiveService.box.get(id);
+      final cachedPokemon = hiveService.get(id);
       if (cachedPokemon != null) return right(cachedPokemon);
 
       // Fetch data from API

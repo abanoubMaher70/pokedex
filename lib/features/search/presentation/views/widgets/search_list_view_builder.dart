@@ -26,11 +26,8 @@ class SearchListViewBuilder extends StatelessWidget {
           );
         } else if (state is SearchError) {
           return SliverToBoxAdapter(child: Center(child: Text(state.message)));
-        } else {
-          return const SliverToBoxAdapter(
-            child: Center(child: Text("No Pokemon Found")),
-          );
         }
+        return const SliverToBoxAdapter(child: SizedBox.shrink());
       },
     );
   }
