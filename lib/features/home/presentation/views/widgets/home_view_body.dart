@@ -5,6 +5,7 @@ import 'package:pokedex/core/constants/app_theme.dart';
 import 'package:pokedex/features/home/presentation/manager/favorite_pokemon_cubit/favorite_pokemon_cubit.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/favorite_pokemon_card.dart';
+import 'package:pokedex/features/home/presentation/views/widgets/random_card.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -16,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
     });
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomHomeAppBar(),
         const Text("Your Pokemon"),
@@ -33,6 +34,25 @@ class HomeViewBody extends StatelessWidget {
               return const Center(child: Text("No Pokemon Found"));
             }
           },
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          spacing: 8,
+          children: [
+            const RandomCard(),
+            Expanded(
+              child: Container(
+                height: 150,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Text("All Pokemons"),
+              ),
+            ),
+          ],
         ),
       ],
     );

@@ -12,6 +12,5 @@ class AppTheme {
   static SystemUiOverlayStyle kPrimaryHomeTheme = const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
-    systemNavigationBarColor: Colors.transparent,
   );
 }
