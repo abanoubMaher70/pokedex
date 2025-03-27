@@ -24,7 +24,7 @@ class FavoritePokemonCard extends StatelessWidget {
           ).push(AppRouter.kPokemonDetailsView, extra: pokemonHive),
       child: Container(
         width: double.infinity,
-        height: 300,
+        height: 400,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Color(pokemonHive.palette!),
