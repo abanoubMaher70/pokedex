@@ -17,7 +17,7 @@ class HomeFunctionCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          height: 125,
+          height: 115,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: color,
