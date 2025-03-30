@@ -37,8 +37,9 @@ class HomeViewBody extends StatelessWidget {
           },
         ),
         const SizedBox(height: 8),
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           spacing: 8,
           children: [
             const RandomCard(),

@@ -13,22 +13,21 @@ class HomeFunctionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          height: 115,
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(14),
-            image: const DecorationImage(
-              image: AssetImage('assets/images/pokebola-blanca.png'),
-              fit: BoxFit.contain,
-            ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 115,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(14),
+          image: const DecorationImage(
+            alignment: Alignment.centerRight,
+            image: AssetImage('assets/images/pokebola-blanca.png'),
+            fit: BoxFit.contain,
           ),
-          child: Text(title),
         ),
+        child: Text(title),
       ),
     );
   }
