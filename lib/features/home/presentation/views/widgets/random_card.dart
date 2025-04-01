@@ -25,7 +25,7 @@ class RandomCard extends StatelessWidget {
 
 void _fetchRandomPokemon(BuildContext context) async {
   var homeRepo = locator.get<HomeRepoImpl>();
-  int randomId = Random().nextInt(1200) + 1;
+  int randomId = Random().nextInt(1000) + 1;
   Either<Failure, PokemonModelHive> result = await homeRepo.getPokemon(
     id: randomId,
   );

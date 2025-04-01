@@ -29,22 +29,23 @@ import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/pokemon_details_view_body.dart';
 
 class PokemonDetailsPageView extends StatelessWidget {
-  const PokemonDetailsPageView({
-    super.key,
-    required this.pokemonHive,
-    required this.index,
-  });
+  const PokemonDetailsPageView({super.key, required this.pokemonHive});
 
   final PokemonModelHive pokemonHive;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
     final List<PokemonModelHive> pokemonHiveall =
         locator.get<HiveService<PokemonModelHive>>().getAll();
 
-    final PageController pageController = PageController(initialPage: index);
+    // Find the correct index of the passed Pokémon
+    final int initialIndex = pokemonHiveall.indexWhere(
+      (p) => p.id == pokemonHive.id,
+    );
 
+    final PageController pageController = PageController(
+      initialPage: initialIndex,
+    );
     return PageView.builder(
       controller: pageController,
       clipBehavior: Clip.none,

@@ -52,14 +52,10 @@ class AppRouter {
 
       GoRoute(
         path: kPokemonDetailsPageView,
-        builder: (context, state) {
-          final extra =
-              state.extra as Map<String, dynamic>; // Extract passed data
-          return PokemonDetailsPageView(
-            pokemonHive: extra['hiveService'] as PokemonModelHive,
-            index: extra['index'] as int,
-          );
-        },
+        builder:
+            (context, state) => PokemonDetailsPageView(
+              pokemonHive: state.extra as PokemonModelHive,
+            ),
       ),
     ],
   );
