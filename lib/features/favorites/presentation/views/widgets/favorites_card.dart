@@ -20,9 +20,10 @@ class FavoritesCard extends StatelessWidget {
     final PokemonModel pokemon = hiveService.toPokemonModel();
     return GestureDetector(
       onTap:
-          () => GoRouter.of(
-            context,
-          ).push(AppRouter.kPokemonDetailsView, extra: hiveService),
+          () => GoRouter.of(context).push(
+            AppRouter.kPokemonDetailsPageView,
+            extra: {'hiveService': hiveService, 'index': index},
+          ),
       child: Container(
         height: generateHeight(index),
         margin: const EdgeInsets.all(3),

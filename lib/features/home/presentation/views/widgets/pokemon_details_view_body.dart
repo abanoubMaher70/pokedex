@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
+import 'package:pokedex/core/constants/responsive_constant.dart';
 import 'package:pokedex/core/models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
@@ -17,28 +18,40 @@ class PokemonDetailsViewBody extends StatelessWidget {
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        CustomAppBar(
-          title: pokemonHive.name,
-          titleColor: ConstantColors.kWhiteTextColor,
-          // leading: const Icon(IconlyLight.heart, size: 28),
-          leading: const Icon(IconlyBold.heart, size: 28, color: Colors.red),
-        ),
-        Expanded(
-          child: Stack(
-            alignment: Alignment.topCenter,
-            clipBehavior: Clip.none,
+    return Scaffold(
+      backgroundColor: Color(pokemonHive.palette!),
+      body: SafeArea(
+        child: Padding(
+          padding: ResponsiveConstant.pagePadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              buildPokemonID(screenWidth),
-              buildPokemonImage(screenHeight),
-              buildPokemonTypeInformation(screenWidth, screenHeight),
-              buildPokemonDescription(screenWidth, screenHeight),
+              CustomAppBar(
+                title: pokemonHive.name,
+                titleColor: ConstantColors.kWhiteTextColor,
+                // leading: const Icon(IconlyLight.heart, size: 28),
+                leading: const Icon(
+                  IconlyBold.heart,
+                  size: 28,
+                  color: Colors.red,
+                ),
+              ),
+              Expanded(
+                child: Stack(
+                  alignment: Alignment.topCenter,
+                  clipBehavior: Clip.none,
+                  children: [
+                    buildPokemonID(screenWidth),
+                    buildPokemonImage(screenHeight),
+                    buildPokemonTypeInformation(screenWidth, screenHeight),
+                    buildPokemonDescription(screenWidth, screenHeight),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 
