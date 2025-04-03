@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/models/description_model/description_model.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/widgets/custom_cached_network_image.dart';
 

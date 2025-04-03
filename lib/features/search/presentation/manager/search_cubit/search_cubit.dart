@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/features/search/data/repos/search_repo.dart';
 
 part 'search_state.dart';

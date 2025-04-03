@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/constants/responsive_constant.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_cached_network_image.dart';

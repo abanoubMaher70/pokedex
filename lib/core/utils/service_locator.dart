@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:pokedex/core/constants/hive_boxs_constant.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/features/home/data/repos/home_repo_impl.dart';

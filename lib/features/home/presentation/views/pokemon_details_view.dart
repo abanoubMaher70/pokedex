@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/pokemon_details_view_body.dart';

@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:pokedex/core/errors/failuers.dart';
 import 'package:pokedex/core/models/pokemon_model/pokemon_model.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/services/network/api_services.dart';
 import 'package:pokedex/core/utils/palette_generator.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:pokedex/features/favorites/presentation/views/favorites_view.dart';
@@ -33,7 +33,7 @@ class AppRouter {
               create:
                   (context) =>
                       FavoritePokemonCubit(locator.get<HomeRepoImpl>())
-                        ..getFavoritePokemon(id: 644),
+                        ..getFavoritePokemon(id: 150),
               child: const HomeView(),
             ),
       ),

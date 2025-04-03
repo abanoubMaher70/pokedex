@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/errors/failuers.dart';
-import 'package:pokedex/core/models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
