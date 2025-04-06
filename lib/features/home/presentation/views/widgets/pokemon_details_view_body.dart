@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/constants/responsive_constant.dart';
 import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
-import 'package:pokedex/core/widgets/custom_app_bar.dart';
 import 'package:pokedex/core/widgets/custom_cached_network_image.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 
@@ -26,21 +24,12 @@ class PokemonDetailsViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomAppBar(
-                title: pokemonHive.name,
-                titleColor: ConstantColors.kWhiteTextColor,
-                // leading: const Icon(IconlyLight.heart, size: 28),
-                leading: const Icon(
-                  IconlyBold.heart,
-                  size: 28,
-                  color: Colors.red,
-                ),
-              ),
               Expanded(
                 child: Stack(
                   alignment: Alignment.topCenter,
                   clipBehavior: Clip.none,
                   children: [
+                    buildPokemonName(screenWidth),
                     buildPokemonID(screenWidth),
                     buildPokemonImage(screenHeight),
                     buildPokemonTypeInformation(screenWidth, screenHeight),
@@ -55,9 +44,22 @@ class PokemonDetailsViewBody extends StatelessWidget {
     );
   }
 
+  /// Displays Pokémon Name
+  Widget buildPokemonName(double screenWidth) {
+    return SizedBox(
+      child: FittedBox(
+        child: Text(
+          pokemonHive.name,
+          style: TextStyle(color: ConstantColors.kWhiteTextColor),
+        ),
+      ),
+    );
+  }
+
   /// Displays Pokémon ID
   Widget buildPokemonID(double screenWidth) {
     return Positioned(
+      top: 30,
       child: SizedBox(
         width: screenWidth * 0.65,
         child: FittedBox(
@@ -73,9 +75,9 @@ class PokemonDetailsViewBody extends StatelessWidget {
   /// Displays Pokémon Image
   Widget buildPokemonImage(double screenHeight) {
     return Positioned(
-      top: -5,
+      top: 65,
       child: CustomCachedNetworkImage(
-        height: screenHeight * 0.70,
+        height: screenHeight * 0.65,
         pokemonImage:
             pokemonHive
                 .toPokemonModel()

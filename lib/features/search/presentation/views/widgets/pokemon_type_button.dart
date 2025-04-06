@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/constants/pokemon_type_constant.dart';
-import 'package:pokedex/core/models/pokemon_type.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_type.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 

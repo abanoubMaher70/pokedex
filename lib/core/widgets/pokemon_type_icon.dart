@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/models/pokemon_type.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_type.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
 
 class PokemonTypeIcon extends StatelessWidget {
