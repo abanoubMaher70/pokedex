@@ -21,7 +21,7 @@ class PokemonCard extends StatelessWidget {
       onTap:
           () => GoRouter.of(
             context,
-          ).push(AppRouter.kPokemonDetailsPageView, extra: pokemonHive),
+          ).push(AppRouter.kPokemonDetailsView, extra: pokemonHive),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14),
         margin: const EdgeInsets.only(bottom: 16),

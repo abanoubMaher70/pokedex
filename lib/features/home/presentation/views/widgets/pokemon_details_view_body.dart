@@ -46,11 +46,14 @@ class PokemonDetailsViewBody extends StatelessWidget {
 
   /// Displays Pokémon Name
   Widget buildPokemonName(double screenWidth) {
-    return SizedBox(
-      child: FittedBox(
-        child: Text(
-          pokemonHive.name,
-          style: TextStyle(color: ConstantColors.kWhiteTextColor),
+    return Positioned(
+      top: 10,
+      child: SizedBox(
+        child: FittedBox(
+          child: Text(
+            pokemonHive.name.toUpperCase(),
+            style: TextStyle(color: ConstantColors.kWhiteTextColor),
+          ),
         ),
       ),
     );
@@ -59,7 +62,7 @@ class PokemonDetailsViewBody extends StatelessWidget {
   /// Displays Pokémon ID
   Widget buildPokemonID(double screenWidth) {
     return Positioned(
-      top: 30,
+      top: 40,
       child: SizedBox(
         width: screenWidth * 0.65,
         child: FittedBox(
@@ -75,7 +78,7 @@ class PokemonDetailsViewBody extends StatelessWidget {
   /// Displays Pokémon Image
   Widget buildPokemonImage(double screenHeight) {
     return Positioned(
-      top: 65,
+      top: 75,
       child: CustomCachedNetworkImage(
         height: screenHeight * 0.65,
         pokemonImage:

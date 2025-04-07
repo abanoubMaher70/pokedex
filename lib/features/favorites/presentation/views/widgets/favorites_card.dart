@@ -22,7 +22,7 @@ class FavoritesCard extends StatelessWidget {
       onTap:
           () => GoRouter.of(
             context,
-          ).push(AppRouter.kPokemonDetailsPageView, extra: hiveService),
+          ).push(AppRouter.kPokemonDetailsView, extra: hiveService),
       child: Container(
         height: generateHeight(index),
         margin: const EdgeInsets.all(3),

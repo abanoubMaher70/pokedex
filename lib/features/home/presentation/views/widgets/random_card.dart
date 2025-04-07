@@ -43,9 +43,7 @@ void _fetchRandomPokemon(BuildContext context) async {
       );
     },
     (pokemon) {
-      GoRouter.of(
-        context,
-      ).push(AppRouter.kPokemonDetailsPageView, extra: pokemon);
+      GoRouter.of(context).push(AppRouter.kPokemonDetailsView, extra: pokemon);
     },
   );
 }

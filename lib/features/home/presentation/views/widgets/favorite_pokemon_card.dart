@@ -21,7 +21,7 @@ class FavoritePokemonCard extends StatelessWidget {
       onTap:
           () => GoRouter.of(
             context,
-          ).push(AppRouter.kPokemonDetailsPageView, extra: pokemonHive),
+          ).push(AppRouter.kPokemonDetailsView, extra: pokemonHive),
       child: Container(
         width: double.infinity,
         height: 400,

@@ -18,7 +18,7 @@ class AppRouter {
   static const kHomeView = '/homeView';
   static const kSearchView = '/searchView';
   static const kFavoritesView = '/favoritesView';
-  static const kPokemonDetailsPageView = '/PokemonDetailsPageView';
+  static const kPokemonDetailsView = '/PokemonDetailsView';
 
   static final router = GoRouter(
     routes: [
@@ -51,9 +51,9 @@ class AppRouter {
       ),
 
       GoRoute(
-        path: kPokemonDetailsPageView,
+        path: kPokemonDetailsView,
         builder:
-            (context, state) => PokemonDetailsPageView(
+            (context, state) => PokemonDetailsView(
               pokemonHive: state.extra as PokemonModelHive,
             ),
       ),
