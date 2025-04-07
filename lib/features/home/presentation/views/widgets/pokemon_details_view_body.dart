@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/core/constants/constant_colors.dart';
 import 'package:pokedex/core/constants/responsive_constant.dart';
 import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
+import 'package:pokedex/core/models/pokemon_model/pokemon_type.dart';
 import 'package:pokedex/core/utils/pokemon_utils.dart';
 import 'package:pokedex/core/widgets/custom_cached_network_image.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
@@ -32,6 +33,7 @@ class PokemonDetailsViewBody extends StatelessWidget {
                     buildPokemonName(screenWidth),
                     buildPokemonID(screenWidth),
                     buildPokemonImage(screenHeight),
+                    buildPokemonEvaluation(screenHeight),
                     buildPokemonTypeInformation(screenWidth, screenHeight),
                     buildPokemonDescription(screenWidth, screenHeight),
                   ],
@@ -81,6 +83,9 @@ class PokemonDetailsViewBody extends StatelessWidget {
       top: 75,
       child: CustomCachedNetworkImage(
         height: screenHeight * 0.65,
+
+        ///pixel art
+        // pokemonImage: pokemonHive.toPokemonModel().sprites?.frontDefault ?? '',
         pokemonImage:
             pokemonHive
                 .toPokemonModel()
@@ -89,6 +94,20 @@ class PokemonDetailsViewBody extends StatelessWidget {
                 ?.officialArtwork
                 ?.frontDefault ??
             '',
+      ),
+    );
+  }
+
+  /// Displays Pokémon Ev Image
+  Widget buildPokemonEvaluation(double screenHeight) {
+    return Positioned(
+      bottom: screenHeight * 0.19,
+      left: 6,
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          PokemonTypeIcon(pokemonType: PokemonType.evolve, iconSize: 22.5),
+        ],
       ),
     );
   }

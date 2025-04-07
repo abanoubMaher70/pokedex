@@ -8,7 +8,7 @@ class PokemonDetailsAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 44,
+      top: 43,
       right: 8,
       left: 8,
       child: Row(
@@ -16,6 +16,7 @@ class PokemonDetailsAppBar extends StatelessWidget {
         children: [
           SquerButton.backButton(context),
           IconButton(
+            padding: EdgeInsets.zero,
             icon: const Icon(IconlyBold.heart, size: 28, color: Colors.red),
             onPressed: () {},
           ),

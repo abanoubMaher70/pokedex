@@ -17,4 +17,5 @@ enum PokemonType {
   normal,
   fighting,
   flying,
+  evolve,
 }

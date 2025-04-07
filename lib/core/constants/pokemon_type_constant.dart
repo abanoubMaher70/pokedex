@@ -40,6 +40,8 @@ extension PokemonTypeConstant on PokemonType {
         return const Color(0xFFE99B97);
       case PokemonType.flying:
         return const Color(0xFFFFFFFF);
+      case PokemonType.evolve:
+        return const Color(0xFFE3E3D5);
     }
   }
 
@@ -81,6 +83,8 @@ extension PokemonTypeConstant on PokemonType {
         return const Color(0xFFC22E28);
       case PokemonType.flying:
         return const Color(0xFF8571DB);
+      case PokemonType.evolve:
+        return const Color(0xFFC22E28);
     }
   }
 
@@ -122,6 +126,8 @@ extension PokemonTypeConstant on PokemonType {
         return 'assets/images/pokemons_types/fighting.png';
       case PokemonType.flying:
         return 'assets/images/pokemons_types/flying.png';
+      case PokemonType.evolve:
+        return 'assets/images/pokebola-blanca.png';
     }
   }
 }

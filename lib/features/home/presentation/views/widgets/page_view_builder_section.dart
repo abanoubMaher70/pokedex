@@ -14,7 +14,6 @@ class PageViewBuilderSection extends StatelessWidget {
     final List<PokemonModelHive> pokemonHiveall =
         locator.get<HiveService<PokemonModelHive>>().getAll();
 
-    // Find the correct index of the passed Pokémon
     final int initialIndex = pokemonHiveall.indexWhere(
       (p) => p.id == pokemonHive.id,
     );
