@@ -20,7 +20,6 @@ class Pokedex extends StatelessWidget {
         textTheme: GoogleFonts.pressStart2pTextTheme(
           Theme.of(context).textTheme,
         ),
-        useMaterial3: true,
       ),
       routerConfig: AppRouter.router,
     );

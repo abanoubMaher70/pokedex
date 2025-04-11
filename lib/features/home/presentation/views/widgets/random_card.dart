@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/errors/failuers.dart';
 import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
@@ -8,6 +9,7 @@ import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/core/utils/text_styles.dart';
 import 'package:pokedex/features/home/data/repos/home_repo_impl.dart';
+import 'package:pokedex/features/home/presentation/manager/favorite_pokemon_cubit/favorite_pokemon_cubit.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/home_function_card.dart';
 
 class RandomCard extends StatelessWidget {
@@ -18,7 +20,9 @@ class RandomCard extends StatelessWidget {
     return HomeFunctionCard(
       title: 'Random',
       color: Colors.red,
-      onTap: () => _fetchRandomPokemon(context),
+      onTap:
+          () =>
+              BlocProvider.of<FavoritePokemonCubit>(context).getRandomPokemon(),
     );
   }
 }
