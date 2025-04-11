@@ -28,7 +28,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<FavoritePokemonCubit, FavoritePokemonState>(
+    return BlocConsumer<FavoritePokemonCubit, FavoritePokemonState>(
       listener: (context, state) {
         if (state is FavoritePokemonSuccess) {
           GoRouter.of(
@@ -36,34 +36,49 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ).push(AppRouter.kPokemonDetailsView, extra: state.pokemon);
         }
       },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomHomeAppBar(),
-          const Text("Your Pokemon"),
-          const SizedBox(height: 4),
-          _buildFavoritePokemonSection(),
-          const SizedBox(height: 8),
-          _buildHomeFunctionSection(),
-        ],
-      ),
+      builder: (context, state) {
+        final isLoading = state is FavoritePokemonLoading;
+
+        return Stack(
+          children: [
+            // Main UI
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomHomeAppBar(),
+                  const SizedBox(height: 8),
+                  const Text("Your Pokemon"),
+                  const SizedBox(height: 4),
+                  _buildFavoriteSection(state),
+                  const SizedBox(height: 8),
+                  _buildHomeFunctionSection(),
+                ],
+              ),
+            ),
+
+            // Loading Overlay
+            if (isLoading)
+              Positioned.fill(
+                child: Container(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 
-  Widget _buildFavoritePokemonSection() {
-    return BlocBuilder<FavoritePokemonCubit, FavoritePokemonState>(
-      builder: (context, state) {
-        if (state is FavoritePokemonLoading) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is FavoritePokemonSuccess) {
-          return FavoritePokemonCard(pokemonHive: state.pokemon);
-        } else if (state is FavoritePokemonError) {
-          return Center(child: Text(state.message));
-        } else {
-          return const Center(child: Text("No Pokemon Found"));
-        }
-      },
-    );
+  Widget _buildFavoriteSection(FavoritePokemonState state) {
+    if (state is FavoritePokemonSuccess) {
+      return FavoritePokemonCard(pokemonHive: state.pokemon);
+    } else if (state is FavoritePokemonError) {
+      return Center(child: Text(state.message));
+    } else {
+      return const Center(child: Text("No Pokemon Found"));
+    }
   }
 
   Widget _buildHomeFunctionSection() {
@@ -71,12 +86,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const RandomCard(),
-        const SizedBox(height: 8),
+        const SizedBox(height: 12),
         HomeFunctionCard(
           title: 'All Pokemons',
           color: Colors.green,
           onTap: () {
-            // Add navigation or logic here
+            // TODO: Navigate or trigger something
           },
         ),
       ],

@@ -7,13 +7,13 @@ import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
-  CustomHomeAppBar({super.key});
+  const CustomHomeAppBar({super.key});
 
-  final PokemonModelHive? hiveService = locator
-      .get<HiveService<PokemonModelHive>>()
-      .get(6);
   @override
   Widget build(BuildContext context) {
+    final PokemonModelHive? hiveService = locator
+        .get<HiveService<PokemonModelHive>>()
+        .get(6);
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
