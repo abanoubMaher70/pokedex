@@ -4,8 +4,15 @@ import 'package:pokedex/core/models/pokemon_model/pokemon_type.dart';
 import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
 
-class PokemonDetailsAppBar extends StatelessWidget {
+class PokemonDetailsAppBar extends StatefulWidget {
   const PokemonDetailsAppBar({super.key});
+
+  @override
+  State<PokemonDetailsAppBar> createState() => _PokemonDetailsAppBarState();
+}
+
+class _PokemonDetailsAppBarState extends State<PokemonDetailsAppBar> {
+  bool isTapped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +28,16 @@ class PokemonDetailsAppBar extends StatelessWidget {
             children: [
               IconButton(
                 padding: EdgeInsets.zero,
-                icon: const Icon(IconlyBold.heart, size: 28, color: Colors.red),
-                onPressed: () {},
+                icon: Icon(
+                  isTapped ? IconlyBold.heart : IconlyLight.heart,
+                  size: 28,
+                  color: isTapped ? Colors.red : Colors.black,
+                ),
+                onPressed: () {
+                  setState(() {
+                    isTapped = !isTapped;
+                  });
+                },
               ),
               const PokemonTypeIcon(
                 pokemonType: PokemonType.evolve,

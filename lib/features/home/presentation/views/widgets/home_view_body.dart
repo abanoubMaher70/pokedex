@@ -9,6 +9,7 @@ import 'package:pokedex/features/home/presentation/views/widgets/custom_home_app
 import 'package:pokedex/features/home/presentation/views/widgets/favorite_pokemon_card.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/home_function_card.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/random_card.dart';
+import 'package:pokedex/setting_view.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -91,7 +92,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           title: 'All Pokemons',
           color: Colors.green,
           onTap: () {
-            // TODO: Navigate or trigger something
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const SettingsScreen(),
+              ),
+            );
           },
         ),
       ],
