@@ -5,11 +5,11 @@ import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/constants/app_theme.dart';
 import 'package:pokedex/core/utils/app_router.dart';
 import 'package:pokedex/features/home/presentation/manager/favorite_pokemon_cubit/favorite_pokemon_cubit.dart';
+import 'package:pokedex/features/home/presentation/views/all_pokemons_view.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/favorite_pokemon_card.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/home_function_card.dart';
 import 'package:pokedex/features/home/presentation/views/widgets/random_card.dart';
-import 'package:pokedex/setting_view.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -95,7 +95,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             Navigator.push<void>(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => const SettingsScreen(),
+                builder: (BuildContext context) => const AllPokemonsView(),
               ),
             );
           },
