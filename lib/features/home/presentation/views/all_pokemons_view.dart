@@ -7,7 +7,7 @@ class AllPokemonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: ResponsiveConstant.pagePadding,
