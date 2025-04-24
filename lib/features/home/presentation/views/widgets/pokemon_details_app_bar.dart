@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-import 'package:pokedex/core/models/pokemon_model/pokemon_type.dart';
-import 'package:pokedex/core/widgets/pokemon_type_icon.dart';
 import 'package:pokedex/core/widgets/squer_button.dart';
+import 'package:pokedex/features/home/presentation/views/widgets/custom_popup_menu.dart';
 
 class PokemonDetailsAppBar extends StatefulWidget {
   const PokemonDetailsAppBar({super.key});
@@ -39,10 +38,7 @@ class _PokemonDetailsAppBarState extends State<PokemonDetailsAppBar> {
                   });
                 },
               ),
-              const PokemonTypeIcon(
-                pokemonType: PokemonType.evolve,
-                iconSize: 20,
-              ),
+              const CustomPopupMenu(),
             ],
           ),
         ],

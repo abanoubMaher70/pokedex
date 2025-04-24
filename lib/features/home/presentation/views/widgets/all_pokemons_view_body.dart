@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'package:pokedex/core/models/hive_models/pokemon_model_hive.dart';
 import 'package:pokedex/core/services/hive_service.dart';
 import 'package:pokedex/core/utils/service_locator.dart';
 import 'package:pokedex/core/widgets/custom_app_bar.dart';
-import 'package:pokedex/core/widgets/pokemon_card.dart';
+import 'package:pokedex/features/home/presentation/views/widgets/all_pokemon_list_view_builder.dart';
 
 class AllPokemonsViewBody extends StatelessWidget {
   AllPokemonsViewBody({super.key});
 
-  final List<PokemonModelHive> hiveService =
+  final List<PokemonModelHive> pokemonList =
       locator.get<HiveService<PokemonModelHive>>().getAll();
 
   @override
@@ -18,15 +17,7 @@ class AllPokemonsViewBody extends StatelessWidget {
       children: [
         const CustomAppBar(title: 'All Pokemons'),
         const SizedBox(height: 8),
-        Expanded(
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: hiveService.length,
-            itemBuilder: (context, index) {
-              return PokemonCard(pokemonHive: hiveService[index]);
-            },
-          ),
-        ),
+        AllPokemonListViewBuilder(pokemonList: pokemonList),
       ],
     );
   }
