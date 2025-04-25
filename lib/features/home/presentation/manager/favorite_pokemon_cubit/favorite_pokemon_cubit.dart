@@ -30,29 +30,4 @@ class FavoritePokemonCubit extends Cubit<FavoritePokemonState> {
       (pokemon) => emit(FavoritePokemonSuccess(pokemon)),
     );
   }
-
-  // void _fetchRandomPokemon(BuildContext context) async {
-  //   var homeRepo = locator.get<HomeRepoImpl>();
-  //
-  //   Either<Failure, PokemonModelHive> result = await homeRepo.getPokemon(
-  //     id: randomId,
-  //   );
-  //   result.fold(
-  //     (failure) {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(
-  //           backgroundColor: Colors.red,
-  //           behavior: SnackBarBehavior.floating,
-  //           content: Text(
-  //             "Failed to fetch Pokémon: ${failure.message}",
-  //             style: TextStyles.textStyle12,
-  //           ),
-  //         ),
-  //       );
-  //     },
-  //     (pokemon) {
-  //       GoRouter.of(context).push(AppRouter.kPokemonDetailsView, extra: pokemon);
-  //     },
-  //   );
-  // }
 }

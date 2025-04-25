@@ -101,29 +101,55 @@ class PokemonDetailsViewBody extends StatelessWidget {
     return Positioned(
       bottom: screenHeight * 0.13,
       left: 6,
-      child: Row(
-        spacing: 12,
-        children: [
-          PokemonTypeIcon(
-            pokemonType: convertPokemonType(
-              pokemonHive.toPokemonModel().types!.first.type!.name!,
+      child: SizedBox(
+        width: screenWidth,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //Evolve button
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: PokemonType.evolve.foregroundColor,
+            //     foregroundColor: PokemonType.evolve.backgroundColor,
+            //   ),
+            //   onPressed: () {},
+            //   child: const Row(
+            //     children: [
+            //       PokemonTypeIcon(
+            //         pokemonType: PokemonType.evolve,
+            //         iconSize: 25,
+            //       ),
+            //       Text("Evolve"),
+            //     ],
+            //   ),
+            // ),
+            const SizedBox(height: 12),
+            Row(
+              spacing: 12,
+              children: [
+                PokemonTypeIcon(
+                  pokemonType: convertPokemonType(
+                    pokemonHive.toPokemonModel().types!.first.type!.name!,
+                  ),
+                  iconSize: 22.5,
+                ),
+                SizedBox(
+                  child: FittedBox(
+                    child: Text(
+                      pokemonHive
+                              .toDescriptionModel()
+                              .genera
+                              ?.firstWhere((g) => g.language!.name == 'en')
+                              .genus ??
+                          "Unknown",
+                      style: TextStyle(color: ConstantColors.kWhiteTextColor),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            iconSize: 22.5,
-          ),
-          SizedBox(
-            child: FittedBox(
-              child: Text(
-                pokemonHive
-                        .toDescriptionModel()
-                        .genera
-                        ?.firstWhere((g) => g.language!.name == 'en')
-                        .genus ??
-                    "Unknown",
-                style: TextStyle(color: ConstantColors.kWhiteTextColor),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
