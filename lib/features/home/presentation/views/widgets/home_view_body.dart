@@ -60,11 +60,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
             // Loading Overlay
             if (isLoading)
-              Positioned.fill(
-                child: Container(
-                  color: Colors.black.withValues(alpha: 0.3),
-                  child: const Center(child: CircularProgressIndicator()),
-                ),
+              const Positioned.fill(
+                child: Center(child: CircularProgressIndicator()),
               ),
           ],
         );
@@ -78,7 +75,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     } else if (state is FavoritePokemonError) {
       return Center(child: Text(state.message));
     } else {
-      return const Center(child: Text("No Pokemon Found"));
+      return const SizedBox(
+        height: 400,
+        child: Center(child: Text("No Pokemon Found")),
+      );
     }
   }
 

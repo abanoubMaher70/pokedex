@@ -23,21 +23,23 @@ class FavoritePokemonCard extends StatelessWidget {
             context,
           ).push(AppRouter.kPokemonDetailsView, extra: pokemonHive),
       child: Container(
-        width: double.infinity,
+        width: MediaQuery.sizeOf(context).width,
         height: 400,
-        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Color(pokemonHive.palette!),
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(18),
         ),
         child: Stack(
-          clipBehavior: Clip.none,
           children: [
             SizedBox(
               width: double.infinity,
               child: FittedBox(
                 child: Text(
-                  pokemonDesc.names?[9].name ?? "Unknown",
+                  pokemonDesc.names
+                          ?.where((n) => n.language!.name == 'ja')
+                          .first
+                          .name ??
+                      "Unknown",
                   style: TextStyle(color: ConstantColors.kWhiteTextColor),
                 ),
               ),

@@ -15,7 +15,6 @@ class CustomPopupMenu extends StatelessWidget {
       },
       itemBuilder:
           (BuildContext context) => [
-            const PopupMenuItem<String>(value: 'Remove', child: Text('Remove')),
             const PopupMenuItem<String>(
               value: 'Default',
               child: Text('Make Default'),
